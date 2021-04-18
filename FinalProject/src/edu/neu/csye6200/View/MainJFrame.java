@@ -14,7 +14,7 @@ import javax.swing.UIManager;
 
 /**
  *
- * @author Lilly
+ * @author Yining Chen
  */
 public class MainJFrame extends javax.swing.JFrame {
 
