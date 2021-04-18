@@ -5,24 +5,29 @@
  */
 package edu.neu.csye6200.View;
 
+import com.jtattoo.plaf.aero.AeroLookAndFeel;
 import edu.neu.csye6200.Object.DataStore;
 import edu.neu.csye6200.Object.RatioRule;
 import java.awt.CardLayout;
+import java.util.Properties;
+import javax.swing.UIManager;
 
 /**
  *
- * @author Lilly
+ * @author Yining Chen
  */
 public class MainJFrame extends javax.swing.JFrame {
-     public DataStore dataStore;
+
+    public DataStore dataStore;
+
     /**
      * Creates new form MainJFrame
      */
     public MainJFrame() {
         initComponents();
-        dataStore=DataStore.getInstance();
-        RatioRule.stuTogroup(dataStore.getStuList(),dataStore);
-        RatioRule.techTogroup(dataStore.getTchList(),dataStore);
+        dataStore = DataStore.getInstance();
+        RatioRule.stuTogroup(dataStore.getStuList(), dataStore);
+        RatioRule.techTogroup(dataStore.getTchList(), dataStore);
     }
 
     /**
@@ -145,9 +150,9 @@ public class MainJFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
-        LoginPanel panel = new LoginPanel(userProcessContainer,dataStore);
-        userProcessContainer.add("LoginJPanel",panel);
-        CardLayout layout=(CardLayout) userProcessContainer.getLayout();
+        LoginPanel panel = new LoginPanel(userProcessContainer, dataStore);
+        userProcessContainer.add("LoginJPanel", panel);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.next(userProcessContainer);
 // TODO add your handling code here:
     }//GEN-LAST:event_btnLoginActionPerformed
@@ -180,6 +185,37 @@ public class MainJFrame extends javax.swing.JFrame {
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
+        //</editor-fold>
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+//                if ("Nimbus".equals(info.getName())) {
+//                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+//                    break;
+//                }
+                Properties props = new Properties();
+                props.put("logoString", "my company");
+                AeroLookAndFeel.setCurrentTheme(props);
+                //exmple
+                // UIManager.setLookAndFeel("javax.swing.plaf.metal.MetalLookAndFeel");
+                // UIManager.setLookAndFeel("com.sun.java.swing.plaf.motif.MotifLookAndFeel");
+                //preference
+                UIManager.setLookAndFeel("com.jtattoo.plaf.texture.TextureLookAndFeel");
+                //UIManager.setLookAndFeel("com.jtattoo.plaf.texture.TextureLookAndFeel");
+
+                //apple look
+//                  System.setProperty("apple.laf.useScreenMenuBar", "true");
+//                  System.setProperty("com.apple.mrj.application.apple.menu.about.name", "WikiTeX");
+//                  UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(MainJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(MainJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(MainJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(MainJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
         //</editor-fold>
 
         /* Create and display the form */
