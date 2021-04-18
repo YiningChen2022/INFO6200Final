@@ -17,7 +17,7 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author chenyu
+ * @author Yining Chen
  */
 public class TeacherManagementPanel extends javax.swing.JPanel {
 
