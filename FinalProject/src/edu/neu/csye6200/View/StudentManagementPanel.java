@@ -68,7 +68,7 @@ public class StudentManagementPanel extends javax.swing.JPanel {
 
             },
             new String [] {
-                "Student ID", "Name", "Age(Months)", "Phone Number", "address", "ParentName", "Registerdate"
+                "Student ID", "Name", "Age(Months)", "Phone Number", "address", "ParentName", "Registerdate", "Birthday"
             }
         ));
         jScrollPane1.setViewportView(jTable1);
@@ -289,7 +289,7 @@ public class StudentManagementPanel extends javax.swing.JPanel {
         dtm.setRowCount(0);
         for (Student stu : dataStore.getStuList()) {
             if (stu.isRegisterState()) {
-                Object row[] = new Object[7];
+                Object row[] = new Object[8];
                 row[0] = stu;
                 row[1] = stu.getFirstName() + " " + stu.getLastName();
                 row[2] = stu.getAge();
@@ -297,6 +297,8 @@ public class StudentManagementPanel extends javax.swing.JPanel {
                 row[4] = stu.getAddress();
                 row[3] = stu.getPhoneNumber();
                 row[6] = stu.getRegisterDate();
+                row[7] = stu.getBirthday();
+                
                 dtm.addRow(row);
             }
         }

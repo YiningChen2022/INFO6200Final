@@ -52,8 +52,9 @@ public class StudentFactory extends AbstractStudentFactory{
                 student.setRegisterDate(arr[arr.length-1]);
                 student.setClassID(Integer.parseInt(arr[arr.length-2]));
                 student.setGroupID(Integer.parseInt(arr[arr.length-3]));
+                student.setBirthday(arr[8]);
                 student.setRegisterState(true);
-                int i = 8;
+                int i = 9;
 		while(i < 45) {
 			String[] date = new String[5];
 			for(int k = i + 1; k <= i + 5;k++) {
