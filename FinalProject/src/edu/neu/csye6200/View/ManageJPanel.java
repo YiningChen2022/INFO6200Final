@@ -18,9 +18,9 @@ public class ManageJPanel extends javax.swing.JPanel {
     /**
      * Creates new form LogInJPanel
      */
-     private JPanel userProcessContainer;
-      private DataStore dataStore; 
-    
+    private JPanel userProcessContainer;
+    private DataStore dataStore;
+
     public ManageJPanel(JPanel userProcessContainer, DataStore dataStore) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
@@ -135,24 +135,24 @@ public class ManageJPanel extends javax.swing.JPanel {
     private void btnStuManage3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStuManage3ActionPerformed
         // TODO add your handling code here:
         StudentManagementPanel panel = new StudentManagementPanel(userProcessContainer, dataStore);
-        userProcessContainer.add("studentManageJPanel",panel);
-        CardLayout layout=(CardLayout) userProcessContainer.getLayout();
+        userProcessContainer.add("studentManageJPanel", panel);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.next(userProcessContainer);
     }//GEN-LAST:event_btnStuManage3ActionPerformed
 
     private void btnInfoView3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInfoView3ActionPerformed
         TeacherManagementPanel panel = new TeacherManagementPanel(userProcessContainer, dataStore);
-        userProcessContainer.add("teacherManageJPanel",panel);
-        CardLayout layout=(CardLayout) userProcessContainer.getLayout();
+        userProcessContainer.add("teacherManageJPanel", panel);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.next(userProcessContainer);        // TODO add your handling code here:
-        
+
     }//GEN-LAST:event_btnInfoView3ActionPerformed
 
     private void btnTeaManage3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTeaManage3ActionPerformed
         // TODO add your handling code here:
         TeacherArrangeJPanel panel = new TeacherArrangeJPanel(userProcessContainer, dataStore);
-        userProcessContainer.add("teacherArrangeJPanel",panel);
-        CardLayout layout=(CardLayout) userProcessContainer.getLayout();
+        userProcessContainer.add("teacherArrangeJPanel", panel);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.next(userProcessContainer);
     }//GEN-LAST:event_btnTeaManage3ActionPerformed
 

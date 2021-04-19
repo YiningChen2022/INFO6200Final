@@ -31,7 +31,6 @@ public class StudentFactory extends AbstractStudentFactory{
     public Student getObject() {
         return new Student();
     }
-
     @Override
     public Student getObject(int stuID,String firstName, String lastName, String address, String phoneNumber, int age) {
         return new Student(stuID,firstName, lastName, address, phoneNumber, age);
@@ -65,5 +64,6 @@ public class StudentFactory extends AbstractStudentFactory{
 		}
            return student;
     }
-    
+
+
 }

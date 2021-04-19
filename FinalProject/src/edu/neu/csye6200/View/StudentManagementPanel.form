@@ -38,8 +38,9 @@
               </Group>
               <EmptySpace max="32767" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Component id="btnStuDelete" pref="194" max="32767" attributes="0"/>
+                  <Component id="btnStuDelete" max="32767" attributes="0"/>
                   <Component id="btnStuRegister" max="32767" attributes="0"/>
+                  <Component id="btnStuChange" alignment="0" max="32767" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
           </Group>
@@ -63,7 +64,9 @@
                       <Component id="btnStuRegister" min="-2" pref="29" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="btnStuDelete" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="106" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="btnStuChange" min="-2" pref="29" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="59" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="69" max="-2" attributes="0"/>
@@ -231,5 +234,13 @@
         </Component>
       </SubComponents>
     </Container>
+    <Component class="javax.swing.JButton" name="btnStuChange">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Change Student Information"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnStuChangeActionPerformed"/>
+      </Events>
+    </Component>
   </SubComponents>
 </Form>
