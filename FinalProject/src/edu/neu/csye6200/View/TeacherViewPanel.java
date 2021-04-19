@@ -5,7 +5,7 @@
  */
 package edu.neu.csye6200.View;
 
-import edu.neu.csye6200.Object.DataStore;
+import edu.neu.csye6200.Controller.DataStore;
 import edu.neu.csye6200.Object.Student;
 import edu.neu.csye6200.Object.Teacher;
 import java.awt.CardLayout;

@@ -6,9 +6,9 @@
 package edu.neu.csye6200.View;
 
 import edu.neu.csye6200.Object.Classroom;
-import edu.neu.csye6200.Object.DataStore;
+import edu.neu.csye6200.Controller.DataStore;
 import edu.neu.csye6200.Object.Group;
-import edu.neu.csye6200.Object.RatioRule;
+import edu.neu.csye6200.Controller.RatioRule;
 import edu.neu.csye6200.Object.Student;
 import java.awt.CardLayout;
 import java.awt.Component;
@@ -120,6 +120,8 @@ public class StudentRegisterPanel extends javax.swing.JPanel {
         jButton2 = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
+        jLabel24 = new javax.swing.JLabel();
+        txtbirthday = new javax.swing.JTextField();
 
         setBackground(new java.awt.Color(255, 255, 255));
 
@@ -289,6 +291,8 @@ public class StudentRegisterPanel extends javax.swing.JPanel {
                 .addGap(38, 38, 38))
         );
 
+        jLabel24.setText("Birthday");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -303,11 +307,13 @@ public class StudentRegisterPanel extends javax.swing.JPanel {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel5)
                             .addComponent(jLabel6)
-                            .addComponent(jButton2))
+                            .addComponent(jButton2)
+                            .addComponent(jLabel24))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtPfname, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtPlame))))
+                            .addComponent(txtPlame)
+                            .addComponent(txtbirthday))))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addGap(238, 238, 238)
@@ -466,6 +472,20 @@ public class StudentRegisterPanel extends javax.swing.JPanel {
                                 .addComponent(jLabel4)))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addComponent(jLabel16)
+                                        .addGap(74, 74, 74))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addComponent(jLabel15)
+                                        .addGap(119, 119, 119)))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel18)
+                                    .addComponent(txtMein1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtMein2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(99, 99, 99))
+                            .addGroup(layout.createSequentialGroup()
                                 .addGap(12, 12, 12)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(txtAge, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -486,21 +506,13 @@ public class StudentRegisterPanel extends javax.swing.JPanel {
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(jLabel6)
                                     .addComponent(txtPlame, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                        .addComponent(jLabel16)
-                                        .addGap(74, 74, 74))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                        .addComponent(jLabel15)
-                                        .addGap(119, 119, 119)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel18)
-                                    .addComponent(txtMein1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtMein2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(99, 99, 99))))
+                                    .addComponent(jLabel24)
+                                    .addComponent(txtbirthday, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jButton2)
+                                .addGap(19, 19, 19))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(87, 87, 87)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -561,9 +573,7 @@ public class StudentRegisterPanel extends javax.swing.JPanel {
                             .addComponent(txtMein3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtMein4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jButton1)
-                            .addComponent(jButton2))
+                        .addComponent(jButton1)
                         .addGap(55, 55, 55))))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -630,6 +640,7 @@ public class StudentRegisterPanel extends javax.swing.JPanel {
         String parentLname = txtPlame.getText();
         String address = txtAddress.getText();
         String teleNumber = txtPnumber.getText();
+        String birthday= txtbirthday.getText();
         Date date=new Date();
         SimpleDateFormat dateFormat=new SimpleDateFormat("YYYY-MM-dd");
         String registerdate=dateFormat.format(date);
@@ -641,7 +652,7 @@ public class StudentRegisterPanel extends javax.swing.JPanel {
         String[] arrayIPV = {txtIPV1.getText(),txtIPV2.getText(),txtIPV3.getText(),txtIPV4.getText(),txtIPV5.getText()};
         String[] arrayVAR= {txtVAR1.getText(),txtVAR2.getText(),txtVAR3.getText(),txtVAR4.getText(),txtVAR5.getText()};
         String[] arrayMeningococcal = {txtMein1.getText(),txtMein2.getText(),txtMein3.getText(),txtMein4.getText(),txtMein5.getText()};
-        Student stu = new Student(stuId,stuAge,stuFname,stuLname,parentFname,parentLname,address,teleNumber);
+        Student stu = new Student(stuId,stuAge,stuFname,stuLname,parentFname,parentLname,address,teleNumber,birthday);
         stu.setRegisterDate(registerdate);
      //   stu.setImmunizationmap(dataStore.getImmuList());
         stu.getImmunizationmap().get("Hepatitis B").setDate(arrayHebp);
@@ -725,6 +736,7 @@ public class StudentRegisterPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -776,5 +788,6 @@ public class StudentRegisterPanel extends javax.swing.JPanel {
     private javax.swing.JTextField txtVAR3;
     private javax.swing.JTextField txtVAR4;
     private javax.swing.JTextField txtVAR5;
+    private javax.swing.JTextField txtbirthday;
     // End of variables declaration//GEN-END:variables
 }

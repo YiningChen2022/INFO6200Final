@@ -6,7 +6,7 @@
 package edu.neu.csye6200.View;
 
 import edu.neu.csye6200.Object.Classroom;
-import edu.neu.csye6200.Object.DataStore;
+import edu.neu.csye6200.Controller.DataStore;
 import edu.neu.csye6200.Object.Group;
 import edu.neu.csye6200.Object.Student;
 import edu.neu.csye6200.Object.Teacher;
@@ -26,17 +26,19 @@ public class TeacherManagementPanel extends javax.swing.JPanel {
      */
     private JPanel userProcessContainer;
     private DataStore dataStore;
+
     public TeacherManagementPanel() {
-        
+
     }
 
-   public TeacherManagementPanel(JPanel userProcessContainer, DataStore dataStore) {
-         //To change body of generated methods, choose Tools | Templates.
-          initComponents();
-          this.userProcessContainer = userProcessContainer;
-          this.dataStore = dataStore;
-          populate();
+    public TeacherManagementPanel(JPanel userProcessContainer, DataStore dataStore) {
+        //To change body of generated methods, choose Tools | Templates.
+        initComponents();
+        this.userProcessContainer = userProcessContainer;
+        this.dataStore = dataStore;
+        populate();
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -199,8 +201,8 @@ public class TeacherManagementPanel extends javax.swing.JPanel {
 
     private void btnRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegisterActionPerformed
         TeacherRegisterPanel panel = new TeacherRegisterPanel(userProcessContainer, dataStore);
-        userProcessContainer.add("registerTeacherJPanel",panel);
-        CardLayout layout=(CardLayout) userProcessContainer.getLayout();
+        userProcessContainer.add("registerTeacherJPanel", panel);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.next(userProcessContainer);
         // TODO add your handling code here:
     }//GEN-LAST:event_btnRegisterActionPerformed
@@ -218,41 +220,45 @@ public class TeacherManagementPanel extends javax.swing.JPanel {
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
-         int tid=Integer.parseInt(jTextField1.getText());
-        DefaultTableModel dtm = (DefaultTableModel) jTable1.getModel();
-        dtm.setRowCount(0);
-        for(Teacher t: dataStore.getTchList()){
-          if(t.isRegisterState()&&t.getTeacherID()==tid){
-           Object row[]= new Object[7];
-            row[0]= t;
-            row[1]= t.getFirstName();
-            row[2]= t.getLastName();
-            row[3]= t.getAge();
-            row[4]=t.getRegisterDate();
-            row[5]=t.getPhoneNumber();
-            row[6]=t.getAddress();
-            dtm.addRow(row);
-            }     
+        try {
+            int tid = Integer.parseInt(jTextField1.getText());
+            DefaultTableModel dtm = (DefaultTableModel) jTable1.getModel();
+            dtm.setRowCount(0);
+            for (Teacher t : dataStore.getTchList()) {
+                if (t.isRegisterState() && t.getTeacherID() == tid) {
+                    Object row[] = new Object[7];
+                    row[0] = t;
+                    row[1] = t.getFirstName();
+                    row[2] = t.getLastName();
+                    row[3] = t.getAge();
+                    row[4] = t.getRegisterDate();
+                    row[5] = t.getPhoneNumber();
+                    row[6] = t.getAddress();
+                    dtm.addRow(row);
+                }
+            }
+
+        } catch (NumberFormatException ex) {
+
         }
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        int selectedRow= jTable1.getSelectedRow();
-        if(selectedRow>=0){
-         Teacher t = (Teacher) jTable1.getValueAt(selectedRow,0);
-           t.setRegisterState(false);
-            for(Group g:dataStore.getGroupList()){
-               if(g.getGroupID()==t.getGroupID()){
-                   g.setTech(false);
-               }
-           }
-          JOptionPane.showMessageDialog(null,"Delete Successsfully");
-          populate();
-        
-        }
-        else{
-            JOptionPane.showMessageDialog(null,"Please select a row from table first","warning",JOptionPane.WARNING_MESSAGE);
+        int selectedRow = jTable1.getSelectedRow();
+        if (selectedRow >= 0) {
+            Teacher t = (Teacher) jTable1.getValueAt(selectedRow, 0);
+            t.setRegisterState(false);
+            for (Group g : dataStore.getGroupList()) {
+                if (g.getGroupID() == t.getGroupID()) {
+                    g.setTech(false);
+                }
+            }
+            JOptionPane.showMessageDialog(null, "Delete Successsfully");
+            populate();
+
+        } else {
+            JOptionPane.showMessageDialog(null, "Please select a row from table first", "warning", JOptionPane.WARNING_MESSAGE);
         }
     }//GEN-LAST:event_jButton2ActionPerformed
 
@@ -272,30 +278,26 @@ public class TeacherManagementPanel extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null, "Please select a row from table first", "warning", JOptionPane.WARNING_MESSAGE);
         }
     }//GEN-LAST:event_btnRegister1ActionPerformed
-   public void populate(){
-    
-       
-       DefaultTableModel dtm = (DefaultTableModel) jTable1.getModel();
-        dtm.setRowCount(0);
-        for(Teacher t: dataStore.getTchList()){
-           if(t.isRegisterState()){
-            Object row[]= new Object[7];
-            row[0]= t;
-            row[1]= t.getFirstName();
-            row[2]= t.getLastName();
-            row[3]= t.getAge();
-            row[4]=t.getRegisterDate();
-            row[5]=t.getPhoneNumber();
-            row[6]=t.getAddress();
-            dtm.addRow(row);
-           }
-        }
-   }
+    public void populate() {
 
-   
-   
-   
-   
+        DefaultTableModel dtm = (DefaultTableModel) jTable1.getModel();
+        dtm.setRowCount(0);
+        for (Teacher t : dataStore.getTchList()) {
+            if (t.isRegisterState()) {
+                Object row[] = new Object[7];
+                row[0] = t;
+                row[1] = t.getFirstName();
+                row[2] = t.getLastName();
+                row[3] = t.getAge();
+                row[4] = t.getRegisterDate();
+                row[5] = t.getPhoneNumber();
+                row[6] = t.getAddress();
+                dtm.addRow(row);
+            }
+        }
+    }
+
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnRegister;
     private javax.swing.JButton btnRegister1;

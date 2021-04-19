@@ -6,8 +6,8 @@
 package edu.neu.csye6200.View;
 
 import com.jtattoo.plaf.aero.AeroLookAndFeel;
-import edu.neu.csye6200.Object.DataStore;
-import edu.neu.csye6200.Object.RatioRule;
+import edu.neu.csye6200.Controller.DataStore;
+import edu.neu.csye6200.Controller.RatioRule;
 import java.awt.CardLayout;
 import java.util.Properties;
 import javax.swing.UIManager;

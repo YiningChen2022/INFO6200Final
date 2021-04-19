@@ -20,13 +20,15 @@ public class Student extends Person{
     private String parentFirstName;
     private String parentLastName;
     private String registerDate;
+    private String birthday;
  private Map<String,Immunization> immunizationmap;
 
-    public Student(int stuId, int stuAge, String stuFname, String stuLname, String parentFname, String parentLname, String address, String teleNumber) {
+    public Student(int stuId, int stuAge, String stuFname, String stuLname, String parentFname, String parentLname, String address, String teleNumber,String birthday) {
         super(stuFname,stuLname,address,teleNumber,stuAge);
 		this.stuID = stuId; //To change body of generated methods, choose Tools | Templates.
                 this.parentFirstName=parentFname;
                 this.parentLastName=parentLname;
+                this.birthday=birthday;
           this.immunizationmap = new HashMap<>();
          immunizationmap.put("Hib", new Immunization("Haemophilus influenzae type b (Hib)"));
          immunizationmap.put("Dtap", new Immunization("Diphtheria tetanus & acellular pertussis (DTaP)"));
@@ -128,6 +130,14 @@ public class Student extends Person{
 
     public void setImmunizationmap(Map<String, Immunization> immunizationmap) {
         this.immunizationmap = immunizationmap;
+    }
+
+    public String getBirthday() {
+        return birthday;
+    }
+
+    public void setBirthday(String birthday) {
+        this.birthday = birthday;
     }
     
     

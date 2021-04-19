@@ -6,10 +6,11 @@
 package edu.neu.csye6200.View;
 
 import edu.neu.csye6200.Object.Classroom;
-import edu.neu.csye6200.Object.DataStore;
+import edu.neu.csye6200.Controller.DataStore;
 import edu.neu.csye6200.Object.Group;
-import edu.neu.csye6200.Object.RatioRule;
+import edu.neu.csye6200.Controller.RatioRule;
 import edu.neu.csye6200.Object.Student;
+import edu.neu.csye6200.Object.Teacher;
 import java.awt.CardLayout;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -26,16 +27,17 @@ public class StudentManagementPanel extends javax.swing.JPanel {
      */
     private JPanel userProcessContainer;
     private DataStore dataStore;
+
     public StudentManagementPanel() {
-        
+
     }
 
     public StudentManagementPanel(JPanel userProcessContainer, DataStore dataStore) {
         initComponents();//To change body of generated methods, choose Tools | Templates.
-         this.userProcessContainer = userProcessContainer;
-         this.dataStore = dataStore;
-         populate();
-    
+        this.userProcessContainer = userProcessContainer;
+        this.dataStore = dataStore;
+        populate();
+
     }
 
     /**
@@ -57,6 +59,7 @@ public class StudentManagementPanel extends javax.swing.JPanel {
         jButton4 = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
+        btnStuChange = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
 
@@ -65,7 +68,7 @@ public class StudentManagementPanel extends javax.swing.JPanel {
 
             },
             new String [] {
-                "Student ID", "Name", "Age(Months)", "Phone Number", "address", "ParentName", "Registerdate"
+                "Student ID", "Name", "Age(Months)", "Phone Number", "address", "ParentName", "Registerdate", "Birthday"
             }
         ));
         jScrollPane1.setViewportView(jTable1);
@@ -129,6 +132,13 @@ public class StudentManagementPanel extends javax.swing.JPanel {
                 .addGap(37, 37, 37))
         );
 
+        btnStuChange.setText("Change Student Information");
+        btnStuChange.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnStuChangeActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -147,8 +157,9 @@ public class StudentManagementPanel extends javax.swing.JPanel {
                         .addComponent(jButton4)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btnStuDelete, javax.swing.GroupLayout.DEFAULT_SIZE, 194, Short.MAX_VALUE)
-                    .addComponent(btnStuRegister, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btnStuDelete, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnStuRegister, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnStuChange, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(51, 51, 51))
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 851, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
@@ -168,7 +179,9 @@ public class StudentManagementPanel extends javax.swing.JPanel {
                         .addComponent(btnStuRegister, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(btnStuDelete)
-                        .addGap(106, 106, 106))
+                        .addGap(18, 18, 18)
+                        .addComponent(btnStuChange, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(59, 59, 59))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(69, 69, 69)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -183,13 +196,13 @@ public class StudentManagementPanel extends javax.swing.JPanel {
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
         // TODO add your handling code here:
-      
+
     }//GEN-LAST:event_jTextField1ActionPerformed
 
     private void btnStuRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStuRegisterActionPerformed
         // TODO add your handling code here:
-        StudentRegisterPanel panel = new StudentRegisterPanel(userProcessContainer,dataStore);
-        userProcessContainer.add("studentRegisterJPanel",panel);
+        StudentRegisterPanel panel = new StudentRegisterPanel(userProcessContainer, dataStore);
+        userProcessContainer.add("studentRegisterJPanel", panel);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.next(userProcessContainer);
     }//GEN-LAST:event_btnStuRegisterActionPerformed
@@ -203,71 +216,98 @@ public class StudentManagementPanel extends javax.swing.JPanel {
 
     private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
         // TODO add your handling code here:
-        int stuid=Integer.parseInt(jTextField1.getText());
-        DefaultTableModel dtm = (DefaultTableModel) jTable1.getModel();
-        dtm.setRowCount(0);
-        for(Student stu: dataStore.getStuList()){
-          if(stu.isRegisterState()&&stu.getStuID()==stuid){
-            Object row[]= new Object[7];
-            row[0]= stu;
-            row[1]= stu.getFirstName()+" "+stu.getLastName();
-            row[2]= stu.getAge();
-            row[5]= stu.getParentFirstName()+" "+stu.getParentLastName();
-            row[4]= stu.getAddress();
-            row[3]= stu.getPhoneNumber();
-            row[6]=stu.getRegisterDate();
-            dtm.addRow(row);
-        }     
+        try {
+
+            int stuid = Integer.parseInt(jTextField1.getText());
+
+            DefaultTableModel dtm = (DefaultTableModel) jTable1.getModel();
+            dtm.setRowCount(0);
+            for (Student stu : dataStore.getStuList()) {
+                if (stu.isRegisterState() && stu.getStuID() == stuid) {
+                    Object row[] = new Object[7];
+                    row[0] = stu;
+                    row[1] = stu.getFirstName() + " " + stu.getLastName();
+                    row[2] = stu.getAge();
+                    row[5] = stu.getParentFirstName() + " " + stu.getParentLastName();
+                    row[4] = stu.getAddress();
+                    row[3] = stu.getPhoneNumber();
+                    row[6] = stu.getRegisterDate();
+                    dtm.addRow(row);
+                }
+            }
+
+        } catch (NumberFormatException ex) {
+
         }
+
     }//GEN-LAST:event_btnSearchActionPerformed
 
     private void btnStuDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStuDeleteActionPerformed
         // TODO add your handling code here:
-        int selectedRow= jTable1.getSelectedRow();
-        if(selectedRow>=0){
-          Student stu = (Student) jTable1.getValueAt(selectedRow,0);
-           stu.setRegisterState(false);
-           for(Classroom c:dataStore.getClassroomList()){
-               if(c.getClassId()==stu.getClassID()){
-                   c.setStuClassroomCount(c.getStuClassroomCount()-1);
-               }
-           }
-           for(Group g:dataStore.getGroupList()){
-               if(g.getGroupID()==stu.getGroupID()){
-                   g.setCount(g.getCount()-1);
-               }
-           }
-           JOptionPane.showMessageDialog(null,"Delete Successsfully");
-          populate();
-        
+        int selectedRow = jTable1.getSelectedRow();
+        if (selectedRow >= 0) {
+            Student stu = (Student) jTable1.getValueAt(selectedRow, 0);
+            stu.setRegisterState(false);
+            for (Classroom c : dataStore.getClassroomList()) {
+                if (c.getClassId() == stu.getClassID()) {
+                    c.setStuClassroomCount(c.getStuClassroomCount() - 1);
+                }
+            }
+            for (Group g : dataStore.getGroupList()) {
+                if (g.getGroupID() == stu.getGroupID()) {
+                    g.setCount(g.getCount() - 1);
+                }
+            }
+            JOptionPane.showMessageDialog(null, "Delete Successsfully");
+            populate();
+
+        } else {
+            JOptionPane.showMessageDialog(null, "Please select a row from table first.", "Warning!", JOptionPane.WARNING_MESSAGE);
         }
-        else{
-            JOptionPane.showMessageDialog(null,"Please select a row from table first.","Warning!",JOptionPane.WARNING_MESSAGE);
-        }
-        
+
     }//GEN-LAST:event_btnStuDeleteActionPerformed
-     public void populate(){
-       DefaultTableModel dtm = (DefaultTableModel) jTable1.getModel();
-        dtm.setRowCount(0);
-        for(Student stu: dataStore.getStuList()){
-            if(stu.isRegisterState()){
-            Object row[]= new Object[7];
-            row[0]= stu;
-            row[1]= stu.getFirstName()+" "+stu.getLastName();
-            row[2]= stu.getAge();
-            row[5]= stu.getParentFirstName()+" "+stu.getParentLastName();
-            row[4]= stu.getAddress();
-            row[3]= stu.getPhoneNumber();
-             row[6]=stu.getRegisterDate();
-            dtm.addRow(row);
-        }     
+
+    private void btnStuChangeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStuChangeActionPerformed
+        // TODO add your handling code here:
+
+        int selectedRow = jTable1.getSelectedRow();
+        if (selectedRow >= 0) {
+            Student s = (Student) jTable1.getValueAt(selectedRow, 0);
+            StudentChangePanel panel = new StudentChangePanel(userProcessContainer, dataStore, s);
+            userProcessContainer.add("studentChangeJPanel", panel);
+            CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+            layout.next(userProcessContainer);
+        } else {
+            JOptionPane.showMessageDialog(null, "Please select a row from table first", "warning", JOptionPane.WARNING_MESSAGE);
         }
-    
-     
-     }
+
+
+    }//GEN-LAST:event_btnStuChangeActionPerformed
+
+    public void populate() {
+        DefaultTableModel dtm = (DefaultTableModel) jTable1.getModel();
+        dtm.setRowCount(0);
+        for (Student stu : dataStore.getStuList()) {
+            if (stu.isRegisterState()) {
+                Object row[] = new Object[8];
+                row[0] = stu;
+                row[1] = stu.getFirstName() + " " + stu.getLastName();
+                row[2] = stu.getAge();
+                row[5] = stu.getParentFirstName() + " " + stu.getParentLastName();
+                row[4] = stu.getAddress();
+                row[3] = stu.getPhoneNumber();
+                row[6] = stu.getRegisterDate();
+                row[7] = stu.getBirthday();
+                
+                dtm.addRow(row);
+            }
+        }
+
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnSearch;
+    private javax.swing.JButton btnStuChange;
     private javax.swing.JButton btnStuDelete;
     private javax.swing.JButton btnStuRegister;
     private javax.swing.JButton jButton4;
