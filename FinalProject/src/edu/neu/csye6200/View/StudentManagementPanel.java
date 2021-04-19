@@ -6,9 +6,9 @@
 package edu.neu.csye6200.View;
 
 import edu.neu.csye6200.Object.Classroom;
-import edu.neu.csye6200.Object.DataStore;
+import edu.neu.csye6200.Controller.DataStore;
 import edu.neu.csye6200.Object.Group;
-import edu.neu.csye6200.Object.RatioRule;
+import edu.neu.csye6200.Controller.RatioRule;
 import edu.neu.csye6200.Object.Student;
 import java.awt.CardLayout;
 import javax.swing.JOptionPane;
