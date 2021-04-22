@@ -5,15 +5,13 @@
  */
 package edu.neu.csye6200.Object;
 
-import java.util.List;
-
 /**
  *
  * @author lln
  */
 public abstract class AbstractGroupFactory {
-     public abstract Group getObject();
-	
-	
-     public abstract AbstractGroup getObject(int groupID, int size, int classID);
+
+    public abstract Group getObject();
+
+    public abstract AbstractGroup getObject(int groupID, int size, int classID);
 }

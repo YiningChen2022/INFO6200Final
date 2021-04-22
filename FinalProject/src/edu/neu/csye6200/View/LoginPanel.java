@@ -7,7 +7,6 @@ package edu.neu.csye6200.View;
 
 import edu.neu.csye6200.Controller.DataStore;
 import java.awt.CardLayout;
-import java.awt.event.KeyEvent;
 import java.util.Arrays;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -23,12 +22,12 @@ public class LoginPanel extends javax.swing.JPanel {
      */
     private JPanel userProcessContainer;
     private DataStore dataStore;
+
     public LoginPanel() {
         initComponents();
-       
-       }
+    }
 
-  public  LoginPanel(JPanel userProcessContainer, DataStore dataStore) {
+    public LoginPanel(JPanel userProcessContainer, DataStore dataStore) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
         this.dataStore = dataStore; //To change body of generated methods, choose Tools | Templates.
@@ -177,32 +176,32 @@ public class LoginPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtPINKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPINKeyTyped
-       
+
     }//GEN-LAST:event_txtPINKeyTyped
 
     private void btnLogInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogInActionPerformed
         String username = "admin";
         String s = "123456";
         if (!username.equals(txtUNAME.getText())) {
-            JOptionPane.showMessageDialog(null,"Please input the right username!");
+            JOptionPane.showMessageDialog(null, "Please input the valid username!");
             return;
         }
-        if(Arrays.equals(txtPIN.getPassword(), s.toCharArray())){
-            JOptionPane.showMessageDialog(null,"Log in successfully!");
+        if (Arrays.equals(txtPIN.getPassword(), s.toCharArray())) {
+            JOptionPane.showMessageDialog(null, "Log in successfully!");
             txtPIN.setText("");
-           ManageJPanel panel = new ManageJPanel(userProcessContainer, dataStore);
-            userProcessContainer.add("ManageJPanel",panel);
-            CardLayout layout=(CardLayout) userProcessContainer.getLayout();
+            ManageJPanel panel = new ManageJPanel(userProcessContainer, dataStore);
+            userProcessContainer.add("ManageJPanel", panel);
+            CardLayout layout = (CardLayout) userProcessContainer.getLayout();
             layout.next(userProcessContainer);
-        }else{
-            JOptionPane.showMessageDialog(null,"Please input the right password!");
+        } else {
+            JOptionPane.showMessageDialog(null, "Please input the right password!");
         }
     }//GEN-LAST:event_btnLogInActionPerformed
 
     private void btnStudentViewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStudentViewActionPerformed
         StudentViewPanel panel = new StudentViewPanel(userProcessContainer, dataStore);
         userProcessContainer.add("studentViewJPanel", panel);
-        CardLayout layout=(CardLayout) userProcessContainer.getLayout();
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.next(userProcessContainer);
         // TODO add your handling code here:
     }//GEN-LAST:event_btnStudentViewActionPerformed
@@ -211,7 +210,7 @@ public class LoginPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
         TeacherViewPanel panel = new TeacherViewPanel(userProcessContainer, dataStore);
         userProcessContainer.add("teacherViewJPanel", panel);
-        CardLayout layout=(CardLayout) userProcessContainer.getLayout();
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.next(userProcessContainer);
     }//GEN-LAST:event_jButton1ActionPerformed
 

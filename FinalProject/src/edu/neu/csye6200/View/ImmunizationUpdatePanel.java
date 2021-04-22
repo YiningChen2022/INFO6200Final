@@ -26,22 +26,21 @@ public class ImmunizationUpdatePanel extends javax.swing.JPanel {
     private DataStore datastore;
     private Immunization immunization;
     private JPanel userProcessContainer;
-    
+
     public ImmunizationUpdatePanel() {
-       
+
     }
 
     public ImmunizationUpdatePanel(JPanel userProcessContainer, DataStore dataStore, Immunization imm) {
-         initComponents(); //To change body of generated methods, choose Tools | Templates.
-         this.datastore=datastore;
-         this.userProcessContainer=userProcessContainer;
-         this.immunization=imm;
-         Date date=new Date();
-         SimpleDateFormat dateFormat=new SimpleDateFormat("YYYY-MM-dd");
-         String registerdate=dateFormat.format(date);
-         txtDate.setText(registerdate);
-      //   txtType.setText(immunization.getImmuName());
-          initialization(); 
+        initComponents(); //To change body of generated methods, choose Tools | Templates.
+        this.datastore = datastore;
+        this.userProcessContainer = userProcessContainer;
+        this.immunization = imm;
+        Date date = new Date();
+        SimpleDateFormat dateFormat = new SimpleDateFormat("YYYY-MM-dd");
+        String registerdate = dateFormat.format(date);
+        txtDate.setText(registerdate);
+        initialization();
     }
 
     /**
@@ -224,17 +223,17 @@ public class ImmunizationUpdatePanel extends javax.swing.JPanel {
         arr[3] = txtDose4.getText();
         arr[4] = txtDose5.getText();
         immunization.setDate(arr);
-        JOptionPane.showMessageDialog(null,"Update successfully!");
+        JOptionPane.showMessageDialog(null, "Update successfully!");
         toImmunizationRecordScreen();
-        
+
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void toImmunizationRecordScreen(){
+    private void toImmunizationRecordScreen() {
         CardLayout layout = (CardLayout) this.userProcessContainer.getLayout();
         this.userProcessContainer.remove(this);
         Component[] comps = this.userProcessContainer.getComponents();
-        for(Component comp:comps){
-            if(comp instanceof ImmunizationRecordPanel){
+        for (Component comp : comps) {
+            if (comp instanceof ImmunizationRecordPanel) {
                 ImmunizationRecordPanel panel = (ImmunizationRecordPanel) comp;
                 panel.populate();
             }
@@ -247,9 +246,9 @@ public class ImmunizationUpdatePanel extends javax.swing.JPanel {
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.previous(userProcessContainer);
     }//GEN-LAST:event_jButton3ActionPerformed
-   
-    private void initialization(){
-        String[] arr= immunization.getDate();
+
+    private void initialization() {
+        String[] arr = immunization.getDate();
         txtType.setText(immunization.getImmuName());
         txtDose1.setText(arr[0]);
         txtDose2.setText(arr[1]);

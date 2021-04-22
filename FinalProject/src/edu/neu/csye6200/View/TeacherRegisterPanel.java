@@ -5,9 +5,7 @@
  */
 package edu.neu.csye6200.View;
 
-import edu.neu.csye6200.Object.Classroom;
 import edu.neu.csye6200.Controller.DataStore;
-import edu.neu.csye6200.Object.Group;
 import edu.neu.csye6200.Controller.RatioRule;
 import edu.neu.csye6200.Object.Teacher;
 import java.awt.CardLayout;
@@ -29,18 +27,18 @@ public class TeacherRegisterPanel extends javax.swing.JPanel {
      */
     private JPanel userProcessContainer;
     private DataStore dataStore;
-    
+
     public TeacherRegisterPanel() {
-       
+
     }
 
-   public  TeacherRegisterPanel(JPanel userProcessContainer, DataStore dataStore) {
-          initComponents();
-          this.userProcessContainer = userProcessContainer;
-          this.dataStore = dataStore; 
-          int tchId = getMaxTchId(dataStore.getTchList()) + 1;
-          txtTchId.setText(tchId+""); 
-          txtTchId.setEditable(false);
+    public TeacherRegisterPanel(JPanel userProcessContainer, DataStore dataStore) {
+        initComponents();
+        this.userProcessContainer = userProcessContainer;
+        this.dataStore = dataStore;
+        int tchId = getMaxTchId(dataStore.getTchList()) + 1;
+        txtTchId.setText(tchId + "");
+        txtTchId.setEditable(false);
 //To change body of generated methods, choose Tools | Templates.
     }
 
@@ -205,50 +203,49 @@ public class TeacherRegisterPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegisterActionPerformed
-         RatioRule.techTogroup(dataStore.getTchList(),dataStore);
-      
-         if(txtTchFname.getText().equals("")|txtTchLname.getText().equals("")|txtTchAge.getText().equals("")){
-            JOptionPane.showMessageDialog(null,"Teacher's information can not be empty");
+        RatioRule.techTogroup(dataStore.getTchList(), dataStore);
+
+        if (txtTchFname.getText().equals("") | txtTchLname.getText().equals("") | txtTchAge.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Teacher's information can not be empty");
             return;
         }
-        
-        try{
+
+        try {
             Integer.parseInt(txtTchAge.getText());
-       }catch(NumberFormatException e){
-            JOptionPane.showMessageDialog(null,"Teacher's age can not be letters");
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(null, "Teacher's age can not be letters");
             return;
         }
-        try{
+        try {
             Integer.parseInt(txtTchId.getText());
-       }catch(NumberFormatException e){
-            JOptionPane.showMessageDialog(null,"Teacher's id can not be letters");
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(null, "Teacher's id can not be letters");
             return;
         }
-        
+
         //int tchId =Integer.parseInt(txtTchId.getText());
         int tchId = getMaxTchId(dataStore.getTchList()) + 1;
         String tchFname = txtTchFname.getText();
         String tchLname = txtTchLname.getText();
-        String phone=txtTchPhone.getText();
-        String address=txtTchAddress.getText();
-        Date date=new Date();
-        SimpleDateFormat dateFormat=new SimpleDateFormat("YYYY-MM-dd");
-        String registerdate=dateFormat.format(date);
-        
-        
-        Teacher teacher = new Teacher(tchId,tchFname,tchLname,phone,address,Integer.parseInt(txtTchAge.getText()));
+        String phone = txtTchPhone.getText();
+        String address = txtTchAddress.getText();
+        Date date = new Date();
+        SimpleDateFormat dateFormat = new SimpleDateFormat("YYYY-MM-dd");
+        String registerdate = dateFormat.format(date);
+
+        Teacher teacher = new Teacher(tchId, tchFname, tchLname, phone, address, Integer.parseInt(txtTchAge.getText()));
         teacher.setRegisterState(true);
         teacher.setRegisterDate(registerdate);
-         RatioRule.techTogroup(dataStore.getTchList(),dataStore);
-        
+        RatioRule.techTogroup(dataStore.getTchList(), dataStore);
+
         RatioRule.addTech(teacher, dataStore);
-       String success="Register successfully! and arranege to group"+teacher.getGroupID();
-      for(Teacher t:dataStore.getTchList()){
+        String success = "Register successfully! and arranege to group" + teacher.getGroupID();
+        for (Teacher t : dataStore.getTchList()) {
             System.out.println(t);
         }
-        JOptionPane.showMessageDialog(null,success);    
-         toTeacherInfoScreen();
-        
+        JOptionPane.showMessageDialog(null, success);
+        toTeacherInfoScreen();
+
     }//GEN-LAST:event_btnRegisterActionPerformed
 
     private void txtTchAgeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTchAgeActionPerformed
@@ -265,12 +262,12 @@ public class TeacherRegisterPanel extends javax.swing.JPanel {
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.previous(userProcessContainer);
     }//GEN-LAST:event_jButton1ActionPerformed
-private void toTeacherInfoScreen(){
+    private void toTeacherInfoScreen() {
         CardLayout layout = (CardLayout) this.userProcessContainer.getLayout();
         this.userProcessContainer.remove(this);
         Component[] comps = this.userProcessContainer.getComponents();
-        for(Component comp:comps){
-            if(comp instanceof TeacherManagementPanel){
+        for (Component comp : comps) {
+            if (comp instanceof TeacherManagementPanel) {
                 TeacherManagementPanel panel = (TeacherManagementPanel) comp;
                 panel.populate();
             }
@@ -278,9 +275,9 @@ private void toTeacherInfoScreen(){
         layout.previous(userProcessContainer);
     }
 
-  private int getMaxTchId(List <Teacher> list){
-         int maxID = list.get(list.size()-1).getTeacherID();
-         return maxID;
+    private int getMaxTchId(List<Teacher> list) {
+        int maxID = list.get(list.size() - 1).getTeacherID();
+        return maxID;
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnRegister;

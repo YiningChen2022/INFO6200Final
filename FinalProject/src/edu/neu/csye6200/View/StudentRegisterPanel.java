@@ -5,9 +5,7 @@
  */
 package edu.neu.csye6200.View;
 
-import edu.neu.csye6200.Object.Classroom;
 import edu.neu.csye6200.Controller.DataStore;
-import edu.neu.csye6200.Object.Group;
 import edu.neu.csye6200.Controller.RatioRule;
 import edu.neu.csye6200.Object.Student;
 import java.awt.CardLayout;
@@ -29,18 +27,19 @@ public class StudentRegisterPanel extends javax.swing.JPanel {
      */
     private JPanel userProcessContainer;
     private DataStore dataStore;
+
     public StudentRegisterPanel() {
-       
+
     }
 
-   public StudentRegisterPanel(JPanel userProcessContainer, DataStore dataStore) {
+    public StudentRegisterPanel(JPanel userProcessContainer, DataStore dataStore) {
         initComponents(); //To change body of generated methods, choose Tools | Templates.
         this.userProcessContainer = userProcessContainer;
-        this.dataStore = dataStore; 
-        int stuId=getMaxStuId(dataStore.getStuList()) + 1;
-        txtID.setText(stuId+"");
+        this.dataStore = dataStore;
+        int stuId = getMaxStuId(dataStore.getStuList()) + 1;
+        txtID.setText(stuId + "");
         txtID.setEditable(false);
-   }
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -619,42 +618,42 @@ public class StudentRegisterPanel extends javax.swing.JPanel {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-         
-        if( txtAge.getText().equals("")|txtFname.getText().equals("") | txtLname.getText().equals("") | txtPfname.getText().equals("") | txtPlame.getText().equals("") | txtAddress.getText().equals("") | txtPnumber.getText().equals("")){
-            JOptionPane.showMessageDialog(null,"Personal information can not be empty");
+
+        if (txtAge.getText().equals("") | txtFname.getText().equals("") | txtLname.getText().equals("") | txtPfname.getText().equals("") | txtPlame.getText().equals("") | txtAddress.getText().equals("") | txtPnumber.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Personal information can not be empty");
             return;
         }
-        try{
+        try {
             Integer.parseInt(txtAge.getText());
-        }catch(NumberFormatException e){
-            JOptionPane.showMessageDialog(null,"Student's age can not be letters");
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(null, "Student's age can not be letters");
             return;
         }
         //int stuId = Integer.parseInt(getMaxStuId(dataStore.getStuList())) + 1;
         int stuAge = Integer.parseInt(txtAge.getText());
         //int stuId=Integer.parseInt(txtID.getText());
-        int stuId=getMaxStuId(dataStore.getStuList()) + 1;
+        int stuId = getMaxStuId(dataStore.getStuList()) + 1;
         String stuFname = txtFname.getText();
         String stuLname = txtLname.getText();
         String parentFname = txtPfname.getText();
         String parentLname = txtPlame.getText();
         String address = txtAddress.getText();
         String teleNumber = txtPnumber.getText();
-        String birthday= txtbirthday.getText();
-        Date date=new Date();
-        SimpleDateFormat dateFormat=new SimpleDateFormat("YYYY-MM-dd");
-        String registerdate=dateFormat.format(date);
-        
-        String[] arrayHebp = {txtHepb1.getText(),txtHepb2.getText(),txtHepb3.getText(),txtHepb4.getText(),txtHepb5.getText()};
-        String[] arrayDTaP = {txtDTap1.getText(),txtDTap2.getText(),txtDTap3.getText(),txtDTap4.getText(),txtDTap5.getText()};
-        String[] arrayHib = {txtHib1.getText(),txtHib2.getText(),txtHib3.getText(),txtHib4.getText(),txtHib5.getText()};
-        String[] arrayMMR = {txtMMR1.getText(),txtMMR2.getText(),txtMMR3.getText(),txtMMR4.getText(),txtMMR5.getText()};
-        String[] arrayIPV = {txtIPV1.getText(),txtIPV2.getText(),txtIPV3.getText(),txtIPV4.getText(),txtIPV5.getText()};
-        String[] arrayVAR= {txtVAR1.getText(),txtVAR2.getText(),txtVAR3.getText(),txtVAR4.getText(),txtVAR5.getText()};
-        String[] arrayMeningococcal = {txtMein1.getText(),txtMein2.getText(),txtMein3.getText(),txtMein4.getText(),txtMein5.getText()};
-        Student stu = new Student(stuId,stuAge,stuFname,stuLname,parentFname,parentLname,address,teleNumber,birthday);
+        String birthday = txtbirthday.getText();
+        Date date = new Date();
+        SimpleDateFormat dateFormat = new SimpleDateFormat("YYYY-MM-dd");
+        String registerdate = dateFormat.format(date);
+
+        String[] arrayHebp = {txtHepb1.getText(), txtHepb2.getText(), txtHepb3.getText(), txtHepb4.getText(), txtHepb5.getText()};
+        String[] arrayDTaP = {txtDTap1.getText(), txtDTap2.getText(), txtDTap3.getText(), txtDTap4.getText(), txtDTap5.getText()};
+        String[] arrayHib = {txtHib1.getText(), txtHib2.getText(), txtHib3.getText(), txtHib4.getText(), txtHib5.getText()};
+        String[] arrayMMR = {txtMMR1.getText(), txtMMR2.getText(), txtMMR3.getText(), txtMMR4.getText(), txtMMR5.getText()};
+        String[] arrayIPV = {txtIPV1.getText(), txtIPV2.getText(), txtIPV3.getText(), txtIPV4.getText(), txtIPV5.getText()};
+        String[] arrayVAR = {txtVAR1.getText(), txtVAR2.getText(), txtVAR3.getText(), txtVAR4.getText(), txtVAR5.getText()};
+        String[] arrayMeningococcal = {txtMein1.getText(), txtMein2.getText(), txtMein3.getText(), txtMein4.getText(), txtMein5.getText()};
+        Student stu = new Student(stuId, stuAge, stuFname, stuLname, parentFname, parentLname, address, teleNumber, birthday);
         stu.setRegisterDate(registerdate);
-     //   stu.setImmunizationmap(dataStore.getImmuList());
+        //   stu.setImmunizationmap(dataStore.getImmuList());
         stu.getImmunizationmap().get("Hepatitis B").setDate(arrayHebp);
         stu.getImmunizationmap().get("Dtap").setDate(arrayDTaP);
         stu.getImmunizationmap().get("Hib").setDate(arrayHib);
@@ -664,19 +663,19 @@ public class StudentRegisterPanel extends javax.swing.JPanel {
         stu.getImmunizationmap().get("Meningococcal").setDate(arrayMeningococcal);
         System.out.println(stu.getFirstName());
         RatioRule.addStu(stu, dataStore);
-       
-      for(Student s:dataStore.getStuList()){
-       System.out.println(s);
-       }
-        
-      String success="Register Successsfully,Arrange to group"+stu.getGroupID();
-      JOptionPane.showMessageDialog(null,success);
+
+        for (Student s : dataStore.getStuList()) {
+            System.out.println(s);
+        }
+
+        String success = "Register Successsfully,Arrange to group" + stu.getGroupID();
+        JOptionPane.showMessageDialog(null, success);
         toStudentInfoScreen();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void txtMein1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtMein1ActionPerformed
         // TODO add your handling code here:
-            
+
     }//GEN-LAST:event_txtMein1ActionPerformed
 
     private void txtIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIDActionPerformed
@@ -699,12 +698,12 @@ public class StudentRegisterPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtAgeActionPerformed
 
-     private void toStudentInfoScreen(){
+    private void toStudentInfoScreen() {
         CardLayout layout = (CardLayout) this.userProcessContainer.getLayout();
         this.userProcessContainer.remove(this);
         Component[] comps = this.userProcessContainer.getComponents();
-        for(Component comp:comps){
-            if(comp instanceof StudentManagementPanel){
+        for (Component comp : comps) {
+            if (comp instanceof StudentManagementPanel) {
                 StudentManagementPanel panel = (StudentManagementPanel) comp;
                 panel.populate();
             }
@@ -712,11 +711,11 @@ public class StudentRegisterPanel extends javax.swing.JPanel {
         layout.previous(userProcessContainer);
     }
 
-     private int getMaxStuId(List <Student> list){
-         int maxID = list.get(list.size()-1).getStuID();
-         return maxID;
+    private int getMaxStuId(List<Student> list) {
+        int maxID = list.get(list.size() - 1).getStuID();
+        return maxID;
     }
-     
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;

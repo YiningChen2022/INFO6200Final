@@ -8,9 +8,7 @@ package edu.neu.csye6200.View;
 import edu.neu.csye6200.Object.Classroom;
 import edu.neu.csye6200.Controller.DataStore;
 import edu.neu.csye6200.Object.Group;
-import edu.neu.csye6200.Controller.RatioRule;
 import edu.neu.csye6200.Object.Student;
-import edu.neu.csye6200.Object.Teacher;
 import java.awt.CardLayout;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -298,7 +296,7 @@ public class StudentManagementPanel extends javax.swing.JPanel {
                 row[3] = stu.getPhoneNumber();
                 row[6] = stu.getRegisterDate();
                 row[7] = stu.getBirthday();
-                
+
                 dtm.addRow(row);
             }
         }

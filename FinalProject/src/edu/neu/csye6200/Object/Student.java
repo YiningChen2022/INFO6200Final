@@ -12,7 +12,8 @@ import java.util.Map;
  *
  * @author lln
  */
-public class Student extends Person{
+public class Student extends Person {
+
     private int stuID;
     private int classID = 0;
     private int groupID = 0;
@@ -21,25 +22,25 @@ public class Student extends Person{
     private String parentLastName;
     private String registerDate;
     private String birthday;
- private Map<String,Immunization> immunizationmap;
+    private Map<String, Immunization> immunizationmap;
 
-    public Student(int stuId, int stuAge, String stuFname, String stuLname, String parentFname, String parentLname, String address, String teleNumber,String birthday) {
-        super(stuFname,stuLname,address,teleNumber,stuAge);
-		this.stuID = stuId; //To change body of generated methods, choose Tools | Templates.
-                this.parentFirstName=parentFname;
-                this.parentLastName=parentLname;
-                this.birthday=birthday;
-          this.immunizationmap = new HashMap<>();
-         immunizationmap.put("Hib", new Immunization("Haemophilus influenzae type b (Hib)"));
-         immunizationmap.put("Dtap", new Immunization("Diphtheria tetanus & acellular pertussis (DTaP)"));
-         immunizationmap.put("Polio", new Immunization("Inactivated poliovirus (IPV)"));
-         immunizationmap.put("Hepatitis B", new Immunization("Hepatitis B(Hepb)"));
-         immunizationmap.put("MMR", new Immunization("Measles mumps rubella (MMR)"));
-         immunizationmap.put("Varicella", new Immunization("Varicella (VAR)"));
-         immunizationmap.put("Meningococcal", new Immunization("Meningococcal"));
-    
+    public Student(int stuId, int stuAge, String stuFname, String stuLname, String parentFname, String parentLname, String address, String teleNumber, String birthday) {
+        super(stuFname, stuLname, address, teleNumber, stuAge);
+        this.stuID = stuId; //To change body of generated methods, choose Tools | Templates.
+        this.parentFirstName = parentFname;
+        this.parentLastName = parentLname;
+        this.birthday = birthday;
+        this.immunizationmap = new HashMap<>();
+        immunizationmap.put("Hib", new Immunization("Haemophilus influenzae type b (Hib)"));
+        immunizationmap.put("Dtap", new Immunization("Diphtheria tetanus & acellular pertussis (DTaP)"));
+        immunizationmap.put("Polio", new Immunization("Inactivated poliovirus (IPV)"));
+        immunizationmap.put("Hepatitis B", new Immunization("Hepatitis B(Hepb)"));
+        immunizationmap.put("MMR", new Immunization("Measles mumps rubella (MMR)"));
+        immunizationmap.put("Varicella", new Immunization("Varicella (VAR)"));
+        immunizationmap.put("Meningococcal", new Immunization("Meningococcal"));
+
     }
-    
+
     public String getRegisterDate() {
         return registerDate;
     }
@@ -63,43 +64,39 @@ public class Student extends Person{
     public void setParentLastName(String parentLastName) {
         this.parentLastName = parentLastName;
     }
-    
-   
-    
-     public Student() {
-		 super();
-         this.immunizationmap = new HashMap<>();
+
+    public Student() {
+        super();
+        this.immunizationmap = new HashMap<>();
         immunizationmap.put("Hib", new Immunization("Haemophilus influenzae type b (Hib)"));
-         immunizationmap.put("Dtap", new Immunization("Diphtheria tetanus & acellular pertussis (DTaP)"));
-         immunizationmap.put("Polio", new Immunization("Inactivated poliovirus (IPV)"));
-         immunizationmap.put("Hepatitis B", new Immunization("Hepatitis B(Hepb)"));
-         immunizationmap.put("MMR", new Immunization("Measles mumps rubella (MMR)"));
-         immunizationmap.put("Varicella", new Immunization("Varicella (VAR)"));
-         immunizationmap.put("Meningococcal", new Immunization("Meningococcal"));
-	}
+        immunizationmap.put("Dtap", new Immunization("Diphtheria tetanus & acellular pertussis (DTaP)"));
+        immunizationmap.put("Polio", new Immunization("Inactivated poliovirus (IPV)"));
+        immunizationmap.put("Hepatitis B", new Immunization("Hepatitis B(Hepb)"));
+        immunizationmap.put("MMR", new Immunization("Measles mumps rubella (MMR)"));
+        immunizationmap.put("Varicella", new Immunization("Varicella (VAR)"));
+        immunizationmap.put("Meningococcal", new Immunization("Meningococcal"));
+    }
 
     @Override
     public String toString() {
         return String.valueOf(stuID);
     }
-     
-     
-     
-    public Student(int stuID,String firstName, String lastName, String address, String phoneNumber, int age) {
-		super(firstName,lastName,address,phoneNumber,age);
-		this.stuID = stuID;
 
-		this.immunizationmap = new HashMap<>();
+    public Student(int stuID, String firstName, String lastName, String address, String phoneNumber, int age) {
+        super(firstName, lastName, address, phoneNumber, age);
+        this.stuID = stuID;
+
+        this.immunizationmap = new HashMap<>();
         immunizationmap.put("Hib", new Immunization("Haemophilus influenzae type b (Hib)"));
-         immunizationmap.put("Dtap", new Immunization("Diphtheria tetanus & acellular pertussis (DTaP)"));
-         immunizationmap.put("Polio", new Immunization("Inactivated poliovirus (IPV)"));
-         immunizationmap.put("Hepatitis B", new Immunization("Hepatitis B(Hepb)"));
-         immunizationmap.put("MMR", new Immunization("Measles mumps rubella (MMR)"));
-         immunizationmap.put("Varicella", new Immunization("Varicella (VAR)"));
-         immunizationmap.put("Meningococcal", new Immunization("Meningococcal"));
-                
+        immunizationmap.put("Dtap", new Immunization("Diphtheria tetanus & acellular pertussis (DTaP)"));
+        immunizationmap.put("Polio", new Immunization("Inactivated poliovirus (IPV)"));
+        immunizationmap.put("Hepatitis B", new Immunization("Hepatitis B(Hepb)"));
+        immunizationmap.put("MMR", new Immunization("Measles mumps rubella (MMR)"));
+        immunizationmap.put("Varicella", new Immunization("Varicella (VAR)"));
+        immunizationmap.put("Meningococcal", new Immunization("Meningococcal"));
+
     }
-    
+
     public int getStuID() {
         return stuID;
     }
@@ -139,7 +136,5 @@ public class Student extends Person{
     public void setBirthday(String birthday) {
         this.birthday = birthday;
     }
-    
-    
-           
+
 }

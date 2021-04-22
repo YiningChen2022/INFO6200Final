@@ -19,22 +19,23 @@ public class ImmunizationInfoPanel extends javax.swing.JPanel {
     /**
      * Creates new form ImmunizationInfoPanel
      */
-   private JPanel userProcessContainer;
-   private DataStore dataStore;
-   private Immunization immunization;
-   public ImmunizationInfoPanel() {
-       
+    private JPanel userProcessContainer;
+    private DataStore dataStore;
+    private Immunization immunization;
+
+    public ImmunizationInfoPanel() {
+
     }
 
-   public  ImmunizationInfoPanel(JPanel userProcessContainer, DataStore dataStore, Immunization immunization) {
-       initComponents(); //To change body of generated methods, choose Tools | Templates.
-       this.userProcessContainer=userProcessContainer;
-       this.dataStore=dataStore;
-       this.immunization=immunization;
-       txtType.setText(immunization.getImmuName());
-       txtDose.setText(immunization.getDose());
-       txtDescription.setText(immunization.getDescription());
-   }
+    public ImmunizationInfoPanel(JPanel userProcessContainer, DataStore dataStore, Immunization immunization) {
+        initComponents(); //To change body of generated methods, choose Tools | Templates.
+        this.userProcessContainer = userProcessContainer;
+        this.dataStore = dataStore;
+        this.immunization = immunization;
+        txtType.setText(immunization.getImmuName());
+        txtDose.setText(immunization.getDose());
+        txtDescription.setText(immunization.getDescription());
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -160,7 +161,7 @@ public class ImmunizationInfoPanel extends javax.swing.JPanel {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-         userProcessContainer.remove(this);
+        userProcessContainer.remove(this);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.previous(userProcessContainer);
     }//GEN-LAST:event_jButton1ActionPerformed

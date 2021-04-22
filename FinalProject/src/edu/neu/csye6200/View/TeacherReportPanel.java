@@ -27,20 +27,21 @@ public class TeacherReportPanel extends javax.swing.JPanel {
     private JPanel userProcessContainer;
     private DataStore dataStore;
     private Group group;
+
     public TeacherReportPanel() {
-        
+
     }
 
-  public  TeacherReportPanel(JPanel userProcessContainer, DataStore dataStore, Group group) {
-       initComponents(); //To change body of generated methods, choose Tools | Templates.
-       this.userProcessContainer=userProcessContainer;
-       this.dataStore=dataStore;
-       this.group=group;
-       populate();
-       txtTid.setText(String.valueOf(group.getTeacher().getTeacherID()));
-       txtTname.setText(group.getTeacher().getFirstName()+" "+group.getTeacher().getLastName());
-       
-   }
+    public TeacherReportPanel(JPanel userProcessContainer, DataStore dataStore, Group group) {
+        initComponents(); //To change body of generated methods, choose Tools | Templates.
+        this.userProcessContainer = userProcessContainer;
+        this.dataStore = dataStore;
+        this.group = group;
+        populate();
+        txtTid.setText(String.valueOf(group.getTeacher().getTeacherID()));
+        txtTname.setText(group.getTeacher().getFirstName() + " " + group.getTeacher().getLastName());
+
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -176,34 +177,34 @@ public class TeacherReportPanel extends javax.swing.JPanel {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        int selectedRow= jTable1.getSelectedRow();
-        if(selectedRow>=0){
-           Student stu = (Student) jTable1.getValueAt(selectedRow,0);
-            ImmunizationRecordPanel panel= new ImmunizationRecordPanel(userProcessContainer,dataStore,stu);
-            userProcessContainer.add("ImmunizationRecordJPanel",panel);
-            CardLayout layout=(CardLayout) userProcessContainer.getLayout();
-            layout.next(userProcessContainer);     
-        }
-        else{
-            JOptionPane.showMessageDialog(null,"Please select a row from table first","Warning!",JOptionPane.WARNING_MESSAGE);
+        int selectedRow = jTable1.getSelectedRow();
+        if (selectedRow >= 0) {
+            Student stu = (Student) jTable1.getValueAt(selectedRow, 0);
+            System.out.println(stu);
+            ImmunizationRecordPanel panel = new ImmunizationRecordPanel(userProcessContainer, dataStore, stu);
+            userProcessContainer.add("ImmunizationRecordJPanel", panel);
+            CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+            layout.next(userProcessContainer);
+        } else {
+            JOptionPane.showMessageDialog(null, "Please select a row from table first", "Warning!", JOptionPane.WARNING_MESSAGE);
         }
     }//GEN-LAST:event_jButton1ActionPerformed
-  public void populate(){
-   DefaultTableModel dtm = (DefaultTableModel) jTable1.getModel();
+    public void populate() {
+        DefaultTableModel dtm = (DefaultTableModel) jTable1.getModel();
         dtm.setRowCount(0);
         List<Student> stulist = new ArrayList<>(group.getStudentsList());
-        for(Student student: stulist){
-          if(student.isRegisterState()){
-           Object row[]= new Object[5];
-            row[0]= student;
-            row[1]= student.getFirstName()+" "+student.getLastName();
-            row[2]= student.getAge();
-            row[3]= student.getParentFirstName()+" "+student.getParentLastName();
-            row[4]=student.getPhoneNumber();
-            dtm.addRow(row);
-          }
-       }
-  }
+        for (Student student : stulist) {
+            if (student.isRegisterState()) {
+                Object row[] = new Object[5];
+                row[0] = student;
+                row[1] = student.getFirstName() + " " + student.getLastName();
+                row[2] = student.getAge();
+                row[3] = student.getParentFirstName() + " " + student.getParentLastName();
+                row[4] = student.getPhoneNumber();
+                dtm.addRow(row);
+            }
+        }
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;

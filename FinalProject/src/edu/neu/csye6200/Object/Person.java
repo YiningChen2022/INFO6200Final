@@ -10,6 +10,7 @@ package edu.neu.csye6200.Object;
  * @author lln
  */
 public class Person {
+
     private String FirstName;
     private String LastName;
     private String address;
@@ -24,23 +25,21 @@ public class Person {
     public void setRegisterState(boolean registerState) {
         this.registerState = registerState;
     }
-    
-    
+
     public Person() {
-		super();
-		
-	}
+        super();
+    }
 
-	public Person(String firstName, String lastName, String address, String phoneNumber, int age) {
-		super();
-		this.FirstName = firstName;
-		this.LastName = lastName;
-		this.address = address;
-		this.phoneNumber = phoneNumber;
-		this.age = age;
-	}
+    public Person(String firstName, String lastName, String address, String phoneNumber, int age) {
+        super();
+        this.FirstName = firstName;
+        this.LastName = lastName;
+        this.address = address;
+        this.phoneNumber = phoneNumber;
+        this.age = age;
+    }
 
-	public String getFirstName() {
+    public String getFirstName() {
         return FirstName;
     }
 
@@ -79,7 +78,5 @@ public class Person {
     public void setAge(int age) {
         this.age = age;
     }
-    
-    
-    
+
 }

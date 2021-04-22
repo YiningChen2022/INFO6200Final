@@ -5,15 +5,11 @@
  */
 package edu.neu.csye6200.View;
 
-import edu.neu.csye6200.Object.Classroom;
 import edu.neu.csye6200.Controller.DataStore;
-import edu.neu.csye6200.Object.Group;
 import edu.neu.csye6200.Controller.RatioRule;
 import edu.neu.csye6200.Object.Teacher;
 import java.awt.CardLayout;
 import java.awt.Component;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -315,7 +311,7 @@ public class TeacherChangePanel extends javax.swing.JPanel {
         teacher.setRegisterState(true);
         //RatioRule.techTogroup(dataStore.getTchList(), dataStore);
         //RatioRule.changeTech(teacher, dataStore);
-        
+
         String success = "Change successfully!";
         txtTchFname.setEnabled(false);
         txtTchLname.setEnabled(false);

@@ -25,15 +25,16 @@ public class StudentViewPanel extends javax.swing.JPanel {
      */
     private JPanel userProcessContainer;
     private DataStore dataStore;
+
     public StudentViewPanel() {
-        
+
     }
 
-   public StudentViewPanel(JPanel userProcessContainer, DataStore dataStore) {
-         initComponents();
-         this.userProcessContainer = userProcessContainer;
-         this.dataStore = dataStore; //To change body of generated methods, choose Tools | Templates.
-          populate();
+    public StudentViewPanel(JPanel userProcessContainer, DataStore dataStore) {
+        initComponents();
+        this.userProcessContainer = userProcessContainer;
+        this.dataStore = dataStore; //To change body of generated methods, choose Tools | Templates.
+        populate();
     }
 
     /**
@@ -129,33 +130,32 @@ public class StudentViewPanel extends javax.swing.JPanel {
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.previous(userProcessContainer);
     }//GEN-LAST:event_jButton1ActionPerformed
-    private void populate(){
-    DefaultTableModel dtm = (DefaultTableModel) jTable1.getModel();
+    private void populate() {
+        DefaultTableModel dtm = (DefaultTableModel) jTable1.getModel();
         dtm.setRowCount(0);
         List<Student> stulist = new ArrayList<>(dataStore.getStuList());
-        stulist.sort(new Comparator<Student>(){
-        @Override
-        
-        public int compare(Student o1,Student o2){
-             return o1.getLastName().compareTo(o2.getLastName());
-        }
+        stulist.sort(new Comparator<Student>() {
+            @Override
+
+            public int compare(Student o1, Student o2) {
+                return o1.getLastName().compareTo(o2.getLastName());
+            }
         });
         //   按last name 排序
-        for(Student stu: stulist){
-            if(stu.isRegisterState()){
-            Object row[]= new Object[4];
-            row[0]= stu;
-            row[1]= stu.getFirstName()+" "+stu.getLastName();
-            row[3]= stu.getClassID();
-            row[2]= stu.getGroupID();
-            
-            dtm.addRow(row);
-        } 
+        for (Student stu : stulist) {
+            if (stu.isRegisterState()) {
+                Object row[] = new Object[4];
+                row[0] = stu;
+                row[1] = stu.getFirstName() + " " + stu.getLastName();
+                row[3] = stu.getClassID();
+                row[2] = stu.getGroupID();
+
+                dtm.addRow(row);
+            }
         }
-    
-    
+
     }
-    
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;

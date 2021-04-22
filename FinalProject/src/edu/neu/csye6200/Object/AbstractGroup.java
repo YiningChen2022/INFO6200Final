@@ -5,42 +5,33 @@
  */
 package edu.neu.csye6200.Object;
 
-import java.util.List;
-
 /**
  *
  * @author lln
  */
 public abstract class AbstractGroup {
+
     private int groupID;
     private int size;
     private int count = 0;
 
-
-
-    
-
     public AbstractGroup() {
-		super();
-		
-   }
-
-     public AbstractGroup(int groupID, int size) {
-		super();
-		this.groupID = groupID;
-	        this.size = size;
-		
+        super();
     }
 
-	public int getGroupID() {
+    public AbstractGroup(int groupID, int size) {
+        super();
+        this.groupID = groupID;
+        this.size = size;
+    }
+
+    public int getGroupID() {
         return groupID;
     }
 
     public void setGroupID(int groupID) {
         this.groupID = groupID;
     }
-
-    
 
     public int getSize() {
         return size;
@@ -50,8 +41,6 @@ public abstract class AbstractGroup {
         this.size = size;
     }
 
-
-
     public int getCount() {
         return count;
     }
@@ -60,7 +49,4 @@ public abstract class AbstractGroup {
         this.count = count;
     }
 
-   
-    
-    
 }

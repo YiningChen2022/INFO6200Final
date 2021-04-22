@@ -9,10 +9,11 @@ package edu.neu.csye6200.Object;
  *
  * @author lln
  */
-public class GroupFactory extends AbstractGroupFactory{
+public class GroupFactory extends AbstractGroupFactory {
 
     private static GroupFactory groupFactory;
-	private GroupFactory() {
+
+    private GroupFactory() {
         if (groupFactory != null) {
             throw new IllegalStateException();
         }
@@ -20,12 +21,11 @@ public class GroupFactory extends AbstractGroupFactory{
 
     public static synchronized GroupFactory getInstance() {
         if (groupFactory == null) {
-      
-        	groupFactory = new GroupFactory();
+            groupFactory = new GroupFactory();
         }
-        return groupFactory;   
+        return groupFactory;
     }
-    
+
     @Override
     public Group getObject() {
         return new Group();
@@ -35,5 +35,5 @@ public class GroupFactory extends AbstractGroupFactory{
     public Group getObject(int groupID, int size, int classID) {
         return new Group(groupID, size, classID);
     }
-    
+
 }

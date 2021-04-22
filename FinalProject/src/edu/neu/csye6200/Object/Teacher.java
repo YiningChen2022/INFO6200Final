@@ -9,11 +9,12 @@ package edu.neu.csye6200.Object;
  *
  * @author lln
  */
-public class Teacher extends Person{
+public class Teacher extends Person {
+
     private int teacherID;
-    
+
     private int classID;
-    
+
     private int groupID;
     private String registerDate;
 
@@ -25,29 +26,27 @@ public class Teacher extends Person{
         this.registerDate = registerDate;
     }
 
-    //private static int i = 0;
-      public Teacher() {
-		super();
-		
-	}
-    public  Teacher(String csv){
+    public Teacher() {
+        super();
+    }
+
+    public Teacher(String csv) {
 
     }
-	
-	
-	public Teacher(int teacherID,String firstName, String lastName, String address, String phoneNumber, int age,int classID, int groupID,String registerDate) {
-		super(firstName, lastName, address, phoneNumber, age);
-		this.teacherID = teacherID;
-		this.classID = classID;
-		this.groupID = groupID;
-                this.registerDate=registerDate;
-                this.setRegisterState(true);
-               
-	}
 
-    public Teacher(int teacherID,String firstName, String lastName, String address, String phoneNumber, int age) {
+    public Teacher(int teacherID, String firstName, String lastName, String address, String phoneNumber, int age, int classID, int groupID, String registerDate) {
         super(firstName, lastName, address, phoneNumber, age);
-        this.teacherID=teacherID;
+        this.teacherID = teacherID;
+        this.classID = classID;
+        this.groupID = groupID;
+        this.registerDate = registerDate;
+        this.setRegisterState(true);
+
+    }
+
+    public Teacher(int teacherID, String firstName, String lastName, String address, String phoneNumber, int age) {
+        super(firstName, lastName, address, phoneNumber, age);
+        this.teacherID = teacherID;
         this.setRegisterState(true);
     }
 

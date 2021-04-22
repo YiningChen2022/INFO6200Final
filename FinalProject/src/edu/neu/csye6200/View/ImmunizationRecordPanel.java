@@ -22,23 +22,23 @@ public class ImmunizationRecordPanel extends javax.swing.JPanel {
     /**
      * Creates new form ImmunizatopnRecordPanel
      */
-   private JPanel userProcessContainer;
-   private DataStore dataStore;
-   private Student stu;
-    
+    private JPanel userProcessContainer;
+    private DataStore dataStore;
+    private Student stu;
+
     public ImmunizationRecordPanel() {
-        
+
     }
 
-   public ImmunizationRecordPanel(JPanel userProcessContainer, DataStore dataStore, Student stu) {
-       initComponents(); //To change body of generated methods, choose Tools | Templates.
-       this.userProcessContainer= userProcessContainer;
-       this.dataStore=dataStore;
-       this.stu=stu;
-       txtStuid.setText(String.valueOf(stu.getStuID()));
-       txtStuname.setText(stu.getFirstName()+" "+stu.getLastName());
-       populate();
-   }
+    public ImmunizationRecordPanel(JPanel userProcessContainer, DataStore dataStore, Student stu) {
+        initComponents(); //To change body of generated methods, choose Tools | Templates.
+        this.userProcessContainer = userProcessContainer;
+        this.dataStore = dataStore;
+        this.stu = stu;
+        txtStuid.setText(String.valueOf(stu.getStuID()));
+        txtStuname.setText(stu.getFirstName() + " " + stu.getLastName());
+        populate();
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -183,35 +183,33 @@ public class ImmunizationRecordPanel extends javax.swing.JPanel {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-       int selectedRow= jTable1.getSelectedRow();
-        if(selectedRow>=0){
-            Immunization imm = (Immunization) jTable1.getValueAt(selectedRow,0);
-            ImmunizationUpdatePanel panel= new  ImmunizationUpdatePanel(userProcessContainer,dataStore,imm);
-            userProcessContainer.add("ImmunizationUpdatePanel",panel);
-            CardLayout layout=(CardLayout) userProcessContainer.getLayout();
-            layout.next(userProcessContainer);     
+        int selectedRow = jTable1.getSelectedRow();
+        if (selectedRow >= 0) {
+            Immunization imm = (Immunization) jTable1.getValueAt(selectedRow, 0);
+            ImmunizationUpdatePanel panel = new ImmunizationUpdatePanel(userProcessContainer, dataStore, imm);
+            userProcessContainer.add("ImmunizationUpdatePanel", panel);
+            CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+            layout.next(userProcessContainer);
+        } else {
+            JOptionPane.showMessageDialog(null, "Please select a row from table first", "warning", JOptionPane.WARNING_MESSAGE);
         }
-        else{
-            JOptionPane.showMessageDialog(null,"Please select a row from table first","warning",JOptionPane.WARNING_MESSAGE);
-        }  
-        
-        
+
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
-        int selectedRow= jTable1.getSelectedRow();
-        if(selectedRow>=0){
-            Immunization imm = (Immunization) jTable1.getValueAt(selectedRow,0);
-            Immunization immunization=dataStore.getImmuList().get(imm.getImmuName());
-            
-            ImmunizationInfoPanel panel= new  ImmunizationInfoPanel(userProcessContainer,dataStore,immunization);
-            userProcessContainer.add("ImmunizationInfoPanel",panel);
-            CardLayout layout=(CardLayout) userProcessContainer.getLayout();
-            layout.next(userProcessContainer);     
-        }
-        else{
-            JOptionPane.showMessageDialog(null,"Please select a row from table first","warning",JOptionPane.WARNING_MESSAGE);
+        int selectedRow = jTable1.getSelectedRow();
+        if (selectedRow >= 0) {
+            Immunization imm = (Immunization) jTable1.getValueAt(selectedRow, 0);
+            Immunization immunization = dataStore.getImmuList().get(imm.getImmuName());
+
+            ImmunizationInfoPanel panel = new ImmunizationInfoPanel(userProcessContainer, dataStore, immunization);
+            userProcessContainer.add("ImmunizationInfoPanel", panel);
+            CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+            layout.next(userProcessContainer);
+        } else {
+            JOptionPane.showMessageDialog(null, "Please select a row from table first", "warning", JOptionPane.WARNING_MESSAGE);
         }
     }//GEN-LAST:event_jButton3ActionPerformed
 
@@ -225,24 +223,27 @@ public class ImmunizationRecordPanel extends javax.swing.JPanel {
     private void txtStunameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtStunameActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtStunameActionPerformed
-    public void populate(){
-       DefaultTableModel dtm = (DefaultTableModel) jTable1.getModel();
+    public void populate() {
+        DefaultTableModel dtm = (DefaultTableModel) jTable1.getModel();
         dtm.setRowCount(0);
-        for(Immunization record: stu.getImmunizationmap().values()){
-            Object row[]= new Object[6];
+        for (Immunization record : stu.getImmunizationmap().values()) {
+            System.out.println(record.getImmuName());
+            for (String s : record.getDate()) {
+                System.out.println(s);
+            }
+            Object row[] = new Object[6];
             String[] arr = record.getDate();
-            row[0]= record;
-            row[1]= arr[0];
-            row[2]= arr[1];
-            row[3]= arr[2];
-            row[4]= arr[3];
-            row[5]= arr[4];
-            
+            row[0] = record;
+            row[1] = arr[0];
+            row[2] = arr[1];
+            row[3] = arr[2];
+            row[4] = arr[3];
+            row[5] = arr[4];
+
             dtm.addRow(row);
         }
 
-
-  }
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;

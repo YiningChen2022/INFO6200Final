@@ -5,14 +5,13 @@
  */
 package edu.neu.csye6200.Object;
 
-import java.util.List;
-
 /**
  *
  * @author lln
  */
 public abstract class AbstractClassroomFactory {
+
     public abstract Classroom getObject();
 
-    public abstract Classroom getObject(int classId,int stuAge, int classSize);
+    public abstract Classroom getObject(int classId, int stuAge, int classSize);
 }

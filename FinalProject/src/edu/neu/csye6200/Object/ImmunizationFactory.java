@@ -9,10 +9,10 @@ package edu.neu.csye6200.Object;
  *
  * @author lln
  */
-public class ImmunizationFactory extends AbstractImmunizationFactory{
+public class ImmunizationFactory extends AbstractImmunizationFactory {
 
     private static ImmunizationFactory immunizationFactory;
-    
+
     private ImmunizationFactory() {
         if (immunizationFactory != null) {
             throw new IllegalStateException();
@@ -21,24 +21,24 @@ public class ImmunizationFactory extends AbstractImmunizationFactory{
 
     public static synchronized ImmunizationFactory getInstance() {
         if (immunizationFactory == null) {
-      
-        	immunizationFactory = new ImmunizationFactory();
+            immunizationFactory = new ImmunizationFactory();
         }
-        return immunizationFactory ;   
+        return immunizationFactory;
     }
 
     @Override
     public Immunization getObject() {
-       return new  Immunization();//To change body of generated methods, choose Tools | Templates.
+        return new Immunization();//To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
     public Immunization getObject(String immuName) {
-       return new  Immunization(immuName); //To change body of generated methods, choose Tools | Templates.
+        return new Immunization(immuName); //To change body of generated methods, choose Tools | Templates.
     }
+
     @Override
     public Immunization getObject(String immuName, String dose, String description, String[] date) {
-       return new Immunization(immuName,dose,description,date); //To change body of generated methods, choose Tools | Templates.
+        return new Immunization(immuName, dose, description, date); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
@@ -46,8 +46,4 @@ public class ImmunizationFactory extends AbstractImmunizationFactory{
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-   
-    
-    
-  
 }

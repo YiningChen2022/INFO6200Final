@@ -6,11 +6,9 @@
 package edu.neu.csye6200.View;
 
 import edu.neu.csye6200.Controller.DataStore;
-import edu.neu.csye6200.Object.Student;
 import edu.neu.csye6200.Object.Teacher;
 import java.awt.CardLayout;
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.List;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
@@ -24,20 +22,19 @@ public class TeacherViewPanel extends javax.swing.JPanel {
     /**
      * Creates new form TeacherViewPanel
      */
-   
     private JPanel userProcessContainer;
     private DataStore dataStore;
-    
+
     public TeacherViewPanel() {
-       
+
     }
 
-  public TeacherViewPanel(JPanel userProcessContainer, DataStore dataStore) {
+    public TeacherViewPanel(JPanel userProcessContainer, DataStore dataStore) {
         initComponents(); //To change body of generated methods, choose Tools | Templates.
         this.userProcessContainer = userProcessContainer;
         this.dataStore = dataStore;
         populate();
-  }
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -129,26 +126,25 @@ public class TeacherViewPanel extends javax.swing.JPanel {
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.previous(userProcessContainer);
     }//GEN-LAST:event_jButton1ActionPerformed
-   private void populate(){
-      DefaultTableModel dtm = (DefaultTableModel) jTable1.getModel();
+    private void populate() {
+        DefaultTableModel dtm = (DefaultTableModel) jTable1.getModel();
         dtm.setRowCount(0);
         List<Teacher> techlist = new ArrayList<>(dataStore.getTchList());
-        
-       for(Teacher tech: techlist){
-           if(tech.isRegisterState()){ 
-           Object row[]= new Object[4];
-            row[0]= tech;
-            row[1]= tech.getFirstName()+" "+tech.getLastName();
-            row[3]= tech.getClassID();
-            row[2]= tech.getGroupID();
-            
-            dtm.addRow(row);
-        } 
-       }
-       
-       
-   }
-    
+
+        for (Teacher tech : techlist) {
+            if (tech.isRegisterState()) {
+                Object row[] = new Object[4];
+                row[0] = tech;
+                row[1] = tech.getFirstName() + " " + tech.getLastName();
+                row[3] = tech.getClassID();
+                row[2] = tech.getGroupID();
+
+                dtm.addRow(row);
+            }
+        }
+
+    }
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;

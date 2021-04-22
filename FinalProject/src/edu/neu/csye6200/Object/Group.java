@@ -12,61 +12,58 @@ import java.util.List;
  *
  * @author lln
  */
-public class Group extends AbstractGroup{
+public class Group extends AbstractGroup {
 
-	private int classID;
-	private List<Student> studentsList;
-	private Teacher teacher;
-	private boolean tech=false;
+    private int classID;
+    private List<Student> studentsList;
+    private Teacher teacher;
+    private boolean tech = false;
 
-	public Teacher getTeacher() {
-		return teacher;
-	}
+    public Teacher getTeacher() {
+        return teacher;
+    }
 
-	public void setTeacher(Teacher teacher) {
-		this.teacher = teacher;
-	}
+    public void setTeacher(Teacher teacher) {
+        this.teacher = teacher;
+    }
 
-	public boolean isTech() {
-		return tech;
-	}
+    public boolean isTech() {
+        return tech;
+    }
 
-	public void setTech(boolean tech) {
-		this.tech = tech;
-	}
+    public void setTech(boolean tech) {
+        this.tech = tech;
+    }
 
-	public Group() {
-            this.studentsList = new ArrayList<>();
-        }
-	
-	public Group(int groupID, int size, int classID) {
-		super(groupID, size);
-                this.classID = classID;
-		this.studentsList = new ArrayList<>();
-	}
-        
+    public Group() {
+        this.studentsList = new ArrayList<>();
+    }
 
-	public int getClassID() {
-		return classID;
-	}
+    public Group(int groupID, int size, int classID) {
+        super(groupID, size);
+        this.classID = classID;
+        this.studentsList = new ArrayList<>();
+    }
 
-	public void setClassID(int classID) {
-		this.classID = classID;
-	}
+    public int getClassID() {
+        return classID;
+    }
 
-	public List<Student> getStudentsList() {
-		return studentsList;
-	}
+    public void setClassID(int classID) {
+        this.classID = classID;
+    }
 
-	public void setStudentsList(List<Student> studentsList) {
-		this.studentsList = studentsList;
-	}
+    public List<Student> getStudentsList() {
+        return studentsList;
+    }
+
+    public void setStudentsList(List<Student> studentsList) {
+        this.studentsList = studentsList;
+    }
 
     @Override
     public String toString() {
         return String.valueOf(this.getTeacher().getTeacherID());
     }
-    
-    
-    
+
 }

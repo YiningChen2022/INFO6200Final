@@ -5,11 +5,8 @@
  */
 package edu.neu.csye6200.View;
 
-import edu.neu.csye6200.Object.Classroom;
 import edu.neu.csye6200.Controller.DataStore;
 import edu.neu.csye6200.Object.Group;
-import edu.neu.csye6200.Object.Student;
-import edu.neu.csye6200.Object.Teacher;
 import java.awt.CardLayout;
 import java.util.ArrayList;
 import java.util.List;
@@ -28,6 +25,7 @@ public class TeacherArrangeJPanel extends javax.swing.JPanel {
      */
     private JPanel userProcessContainer;
     private DataStore dataStore;
+
     public TeacherArrangeJPanel() {
         initComponents();
     }
@@ -54,6 +52,7 @@ public class TeacherArrangeJPanel extends javax.swing.JPanel {
         jButton3 = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
+        btnAllStuReport = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
 
@@ -102,29 +101,35 @@ public class TeacherArrangeJPanel extends javax.swing.JPanel {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(44, Short.MAX_VALUE)
+                .addContainerGap(40, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addGap(34, 34, 34))
         );
+
+        btnAllStuReport.setText("All Student Report");
+        btnAllStuReport.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAllStuReportActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 964, Short.MAX_VALUE)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnAnnualReport, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(46, 46, 46))
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(30, 30, 30)
-                        .addComponent(jButton3))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(39, 39, 39)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 799, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(39, 39, 39)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 799, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addComponent(jButton3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(btnAllStuReport, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnAnnualReport, javax.swing.GroupLayout.DEFAULT_SIZE, 221, Short.MAX_VALUE))
+                .addGap(46, 46, 46))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -134,28 +139,31 @@ public class TeacherArrangeJPanel extends javax.swing.JPanel {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
                 .addComponent(btnAnnualReport, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(31, 31, 31)
-                .addComponent(jButton3)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(31, 31, 31)
+                        .addComponent(jButton3))
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnAllStuReport, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(70, 70, 70))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAnnualReportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAnnualReportActionPerformed
         // TODO add your handling code here:
-       int selectedRow= jTable1.getSelectedRow();
-        if(selectedRow>=0){
-            Group group = (Group) jTable1.getValueAt(selectedRow,0);
-            TeacherReportPanel panel= new TeacherReportPanel(userProcessContainer,dataStore,group);
-            userProcessContainer.add("teacherReportJPanel",panel);
-            CardLayout layout=(CardLayout) userProcessContainer.getLayout();
-            layout.next(userProcessContainer);     
+        int selectedRow = jTable1.getSelectedRow();
+        if (selectedRow >= 0) {
+            Group group = (Group) jTable1.getValueAt(selectedRow, 0);
+            TeacherReportPanel panel = new TeacherReportPanel(userProcessContainer, dataStore, group);
+            userProcessContainer.add("teacherReportJPanel", panel);
+            CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+            layout.next(userProcessContainer);
+        } else {
+            JOptionPane.showMessageDialog(null, "Please select a row from table first", "warning", JOptionPane.WARNING_MESSAGE);
         }
-        else{
-            JOptionPane.showMessageDialog(null,"Please select a row from table first","warning",JOptionPane.WARNING_MESSAGE);
-        }
-        
-      
-       
+
+
     }//GEN-LAST:event_btnAnnualReportActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -164,26 +172,41 @@ public class TeacherArrangeJPanel extends javax.swing.JPanel {
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.previous(userProcessContainer);
     }//GEN-LAST:event_jButton3ActionPerformed
-private void populate(){
-      DefaultTableModel dtm = (DefaultTableModel) jTable1.getModel();
+
+    private void btnAllStuReportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAllStuReportActionPerformed
+        // TODO add your handling code here:
+        int selectedRow = jTable1.getSelectedRow();
+        if (selectedRow >= 0) {
+            Group group = (Group) jTable1.getValueAt(selectedRow, 0);
+            AllStudentsImmuJPanel panel = new AllStudentsImmuJPanel(userProcessContainer, dataStore, group);
+            userProcessContainer.add("allStudentsImmuJPanel", panel);
+            CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+            layout.next(userProcessContainer);
+        } else {
+            JOptionPane.showMessageDialog(null, "Please select a row from table first", "warning", JOptionPane.WARNING_MESSAGE);
+        }
+    }//GEN-LAST:event_btnAllStuReportActionPerformed
+    private void populate() {
+        DefaultTableModel dtm = (DefaultTableModel) jTable1.getModel();
         dtm.setRowCount(0);
         List<Group> grouplist = new ArrayList<>(dataStore.getGroupList());
-        
-       for(Group group: grouplist){
-          if(group.isTech()&&group.getTeacher().isRegisterState()){
-           Object row[]= new Object[4];
-            row[0]= group;
-            row[1]= group.getTeacher().getFirstName()+" "+group.getTeacher().getLastName();
-            row[3]= group.getClassID();
-            row[2]= group.getGroupID();
-            
-            dtm.addRow(row);
-          }
-       }
 
-}
+        for (Group group : grouplist) {
+            if (group.isTech() && group.getTeacher().isRegisterState()) {
+                Object row[] = new Object[4];
+                row[0] = group;
+                row[1] = group.getTeacher().getFirstName() + " " + group.getTeacher().getLastName();
+                row[3] = group.getClassID();
+                row[2] = group.getGroupID();
+
+                dtm.addRow(row);
+            }
+        }
+
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAllStuReport;
     private javax.swing.JButton btnAnnualReport;
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;

@@ -13,97 +13,87 @@ import java.util.List;
  * @author lln
  */
 public abstract class AbstractClassroom {
-	private int classId;
-	private int stuAge;
-	private int classSize = 0;
-        private int stuClassroomCount =0;
-	private int groupCount;
-	private List<Group> groupList;
-	private boolean full = false;
 
-	
-        
-	
-	public AbstractClassroom() {
-		super();
-		
-                this.groupList =  new ArrayList<>();
-	}
+    private int classId;
+    private int stuAge;
+    private int classSize = 0;
+    private int stuClassroomCount = 0;
+    private int groupCount;
+    private List<Group> groupList;
+    private boolean full = false;
 
-	public AbstractClassroom(int classId,int stuAge,int classSize) {
-		super();
-                
-                this.classId = classId;
-		this.stuAge = stuAge;
-		
-		this.classSize = classSize;
-		//this.groupCount = groupCount;
-		
-		this.groupList =  new ArrayList<>();
-	}
+    public AbstractClassroom() {
+        super();
+        this.groupList = new ArrayList<>();
+    }
 
-	public int getClassId() {
-		return classId;
-	}
+    public AbstractClassroom(int classId, int stuAge, int classSize) {
+        super();
+        this.classId = classId;
+        this.stuAge = stuAge;
+        this.classSize = classSize;
+        this.groupList = new ArrayList<>();
+    }
 
-	public void setClassId(int classId) {
-		this.classId = classId;
-	}
+    public int getClassId() {
+        return classId;
+    }
 
-	public int getStuAge() {
-		return stuAge;
-	}
+    public void setClassId(int classId) {
+        this.classId = classId;
+    }
 
-	public void setStuAge(int stuAge) {
-		this.stuAge = stuAge;
-	}
+    public int getStuAge() {
+        return stuAge;
+    }
 
-	
+    public void setStuAge(int stuAge) {
+        this.stuAge = stuAge;
+    }
 
+    public int getClassSize() {
+        return classSize;
+    }
 
-	public int getClassSize() {
-		return classSize;
-	}
+    public void setClassSize(int classSize) {
+        this.classSize = classSize;
+    }
 
-	public void setClassSize(int classSize) {
-		this.classSize = classSize;
-	}
+    public int getGroupCount() {
+        return groupCount;
+    }
 
-	public int getGroupCount() {
-		return groupCount;
-	}
+    public void setGroupCount(int groupCount) {
+        this.groupCount = groupCount;
+    }
 
-	public void setGroupCount(int groupCount) {
-		this.groupCount = groupCount;
-	}
+    public List<Group> getGroupList() {
+        return groupList;
+    }
 
-	public List<Group> getGroupList() {
-		return groupList;
-	}
+    public void setGroupList(List<Group> groupList) {
+        this.groupList = groupList;
+    }
 
-	public void setGroupList(List<Group> groupList) {
-		this.groupList = groupList;
-	}
+    public boolean isFull() {
+        return full;
+    }
 
-	public boolean isFull() {
-		return full;
-	}
+    public void setFull(boolean full) {
+        this.full = full;
+    }
 
-	public void setFull(boolean full) {
-		this.full = full;
-	}
-
-        public int getStuClassroomCount() {
+    public int getStuClassroomCount() {
         return stuClassroomCount;
-        }
+    }
 
-        public void setStuClassroomCount(int stuClassroomCount) {
+    public void setStuClassroomCount(int stuClassroomCount) {
         this.stuClassroomCount = stuClassroomCount;
-        }
+    }
 
     @Override
     public String toString() {
-        return "Classroom{" + "classId=" + classId + ", stuLevel=" + stuAge  + ", classSize=" + classSize + ", CurretStuCount=" + stuClassroomCount  + ", full=" + full + '}';
+        return "Classroom{" + "classId=" + classId + ", stuLevel=" + stuAge + ", classSize=" + classSize + ", CurretStuCount=" + stuClassroomCount + ", full=" + full + '}';
     }
-      
+
 }

@@ -10,10 +10,11 @@ package edu.neu.csye6200.Object;
  * @author lln
  */
 public abstract class AbstractStudentFactory {
-        public abstract Student getObject();
-	
-	public abstract Student getObject(int stuID,String firstName, String lastName, String address, String phoneNumber, int age);
 
-        public abstract Student getObject(String csv);
+    public abstract Student getObject();
+
+    public abstract Student getObject(int stuID, String firstName, String lastName, String address, String phoneNumber, int age);
+
+    public abstract Student getObject(String csv);
 
 }

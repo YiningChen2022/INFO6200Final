@@ -10,14 +10,15 @@ package edu.neu.csye6200.Object;
  * @author lln
  */
 public abstract class AbstractImmunizationFactory {
+
     public abstract Immunization getObject();
-		
+
     public abstract Immunization getObject(String immuName);
-    
-    public abstract Immunization getObject(int immuID, String immuName, String dose, 
-			int duration, String description,String[] date);
-   
-    public abstract Immunization getObject(String immuName, String dose, 
-			String description,String[] date);
+
+    public abstract Immunization getObject(int immuID, String immuName, String dose,
+            int duration, String description, String[] date);
+
+    public abstract Immunization getObject(String immuName, String dose,
+            String description, String[] date);
 
 }

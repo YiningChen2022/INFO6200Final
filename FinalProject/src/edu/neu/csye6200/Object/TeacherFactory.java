@@ -9,10 +9,10 @@ package edu.neu.csye6200.Object;
  *
  * @author lln
  */
-public class TeacherFactory extends AbstractTeacherFactory{
+public class TeacherFactory extends AbstractTeacherFactory {
 
     private static TeacherFactory teacherFactory;
-    
+
     private TeacherFactory() {
         if (teacherFactory != null) {
             throw new IllegalStateException();
@@ -21,25 +21,24 @@ public class TeacherFactory extends AbstractTeacherFactory{
 
     public static synchronized TeacherFactory getInstance() {
         if (teacherFactory == null) {
-      
-        	teacherFactory = new TeacherFactory();
+            teacherFactory = new TeacherFactory();
         }
-        return teacherFactory ;   
+        return teacherFactory;
     }
-    
+
     @Override
     public Teacher getObject() {
         return new Teacher();
     }
 
     @Override
-    public Teacher getObject(int teacherID, String firstName, String lastName, String address, String phoneNumber, int age,int classID, int groupID,String date) {
-        return new Teacher(teacherID,firstName, lastName, address, phoneNumber, age, classID, groupID,date);
+    public Teacher getObject(int teacherID, String firstName, String lastName, String address, String phoneNumber, int age, int classID, int groupID, String date) {
+        return new Teacher(teacherID, firstName, lastName, address, phoneNumber, age, classID, groupID, date);
     }
 
     @Override
     public Teacher getObject(int teacherID, String firstName, String lastName, String address, String phoneNumber, int age) {
-        return new Teacher(teacherID,firstName, lastName, address, phoneNumber, age);
+        return new Teacher(teacherID, firstName, lastName, address, phoneNumber, age);
     }
 
     @Override
