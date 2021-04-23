@@ -10,10 +10,18 @@ import edu.neu.csye6200.Object.Group;
 import edu.neu.csye6200.Object.Immunization;
 import edu.neu.csye6200.Object.Student;
 import java.awt.CardLayout;
+import java.awt.Color;
+import java.awt.Component;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableCellRenderer;
 
 /**
  *
@@ -24,6 +32,7 @@ public class AllStudentsImmuJPanel extends javax.swing.JPanel {
     private JPanel userProcessContainer;
     private DataStore dataStore;
     private Group group;
+    private static boolean hasExpiredStudent = false;
 
     /**
      * Creates new form AllStudentsImmuJPanel
@@ -39,6 +48,7 @@ public class AllStudentsImmuJPanel extends javax.swing.JPanel {
         this.dataStore = dataStore;
         this.group = group;
         populate();
+        
     }
 
     /**
@@ -87,7 +97,7 @@ public class AllStudentsImmuJPanel extends javax.swing.JPanel {
                 {null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "Student ID", "Student Name", "Immunization Type", "1st Dose", "2nd Dose", "3rd Dose", "4th Dose", "5th Dose"
+                "Immunization Type", "Student ID", "Student Name", "1st Dose", "2nd Dose", "3rd Dose", "4th Dose", "No. of Does Needed"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -113,27 +123,24 @@ public class AllStudentsImmuJPanel extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 905, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
-                .addGap(66, 66, 66)
-                .addComponent(jButton1)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(66, 66, 66)
+                        .addComponent(jButton1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(53, 53, 53)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 774, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(65, 65, 65)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 774, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(66, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 356, Short.MAX_VALUE)
+                .addGap(37, 37, 37)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 53, Short.MAX_VALUE)
                 .addComponent(jButton1)
                 .addGap(67, 67, 67))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(138, 138, 138)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(138, Short.MAX_VALUE)))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -144,6 +151,102 @@ public class AllStudentsImmuJPanel extends javax.swing.JPanel {
         layout.previous(userProcessContainer);
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void populate() {
+        DefaultTableModel dtm = (DefaultTableModel) table.getModel();
+        dtm.setRowCount(0);
+        List<Student> stulist = new ArrayList<>(group.getStudentsList());
+        for (Student s : stulist) {
+            if (s.isRegisterState()) {
+                for (Immunization i : s.getImmunizationmap().values()) {
+                    Object row[] = new Object[8];
+                    row[0] = i;
+                    row[1] = s;
+                    row[2] = s.getFirstName() + " " + s.getLastName();
+                    String[] arr = i.getDate();
+                    row[3] = arr[0];
+                    row[4] = arr[1];
+                    row[5] = arr[2];
+                    row[6] = arr[3];
+                    row[7] = i.getDose();
+                    dtm.addRow(row);
+                    if (checkExpired(i)) {
+                        hasExpiredStudent = true;
+                    }
+                }
+            }
+        }
+        if (hasExpiredStudent) {
+            JOptionPane.showMessageDialog(null, "Some students should take more does!");
+        }
+        hasExpiredStudent = false;
+        table.setDefaultRenderer(Object.class, new TableCellRenderer() {
+            private DefaultTableCellRenderer DEFAULT_RENDERER = new DefaultTableCellRenderer();
+
+            @Override
+            public Component getTableCellRendererComponent(javax.swing.JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column) {
+                Component c = DEFAULT_RENDERER.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
+                if (column == 0) {
+                    System.out.println(value);
+                    Immunization i = (Immunization) value;
+                    if (checkExpired(i)) {
+                        c.setBackground(Color.RED);
+                    } else {
+                        c.setBackground(Color.WHITE);
+                    }
+                }
+
+                //Add below code here
+                return c;
+            }
+
+        });
+        
+    }
+
+    private boolean checkExpired(Immunization i) {
+        int required = Integer.parseInt(i.getDose());
+        int done = 0;
+        String lastDate = null;
+        for (String date : i.getDate()) {
+            if (date != null && !date.equals("0")) {
+                done++;
+                lastDate = date;
+            }
+        }
+        if (done >= required) {
+            return false;
+        } else if (lastDate != null && calculateDayDiff(lastDate, getCurrentDateString()) > 60) {
+            return true;
+        } else {
+            return true;
+        }
+    }
+
+    private String getCurrentDateString() {
+        Date dNow = new Date();
+        SimpleDateFormat ft = new SimpleDateFormat("yyyyMMdd");
+        return ft.format(dNow);
+    }
+
+    private Date stringToDate(String input) {
+        SimpleDateFormat ft = new SimpleDateFormat("yyyyMMdd");
+        Date date = null;
+        try {
+            date = ft.parse(input);
+        } catch (ParseException e) {
+            System.out.println(e.getMessage());
+        }
+        return date;
+    }
+
+    private int calculateDayDiff(String s1, String s2) {
+        Date d1 = stringToDate(s1);
+        Date d2 = stringToDate(s2);
+        long t1 = d1.getTime();
+        long t2 = d2.getTime();
+        return (int) ((t2 - t1) / (1000 * 60 * 60 * 24));
+    }
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
@@ -153,26 +256,4 @@ public class AllStudentsImmuJPanel extends javax.swing.JPanel {
     private javax.swing.JTable table;
     // End of variables declaration//GEN-END:variables
 
-    private void populate() {
-        DefaultTableModel dtm = (DefaultTableModel) table.getModel();
-        dtm.setRowCount(0);
-        List<Student> stulist = new ArrayList<>(group.getStudentsList());
-        for (Student s : stulist) {
-            if (s.isRegisterState()) {
-                for (Immunization i : s.getImmunizationmap().values()) {
-                    Object row[] = new Object[8];
-                    row[0] = s;
-                    row[1] = s.getFirstName() + " " + s.getLastName();
-                    String[] arr = i.getDate();
-                    row[2] = i;
-                    row[3] = arr[0];
-                    row[4] = arr[1];
-                    row[5] = arr[2];
-                    row[6] = arr[3];
-                    row[7] = arr[4];
-                    dtm.addRow(row);
-                }
-            }
-        }
-    }
 }

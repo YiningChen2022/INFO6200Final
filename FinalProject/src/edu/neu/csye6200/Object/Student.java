@@ -31,13 +31,13 @@ public class Student extends Person {
         this.parentLastName = parentLname;
         this.birthday = birthday;
         this.immunizationmap = new HashMap<>();
-        immunizationmap.put("Hib", new Immunization("Haemophilus influenzae type b (Hib)"));
-        immunizationmap.put("Dtap", new Immunization("Diphtheria tetanus & acellular pertussis (DTaP)"));
-        immunizationmap.put("Polio", new Immunization("Inactivated poliovirus (IPV)"));
-        immunizationmap.put("Hepatitis B", new Immunization("Hepatitis B(Hepb)"));
-        immunizationmap.put("MMR", new Immunization("Measles mumps rubella (MMR)"));
-        immunizationmap.put("Varicella", new Immunization("Varicella (VAR)"));
-        immunizationmap.put("Meningococcal", new Immunization("Meningococcal"));
+        immunizationmap.put("Hib", new Immunization("4", "Haemophilus influenzae type b (Hib)"));
+        immunizationmap.put("Dtap", new Immunization("4", "Diphtheria tetanus & acellular pertussis (DTaP)"));
+        immunizationmap.put("Polio", new Immunization("3", "Inactivated poliovirus (IPV)"));
+        immunizationmap.put("Hepatitis B", new Immunization("3", "Hepatitis B(Hepb)"));
+        immunizationmap.put("MMR", new Immunization("1", "Measles mumps rubella (MMR)"));
+        immunizationmap.put("Varicella", new Immunization("1", "Varicella (VAR)"));
+        immunizationmap.put("Meningococcal", new Immunization("1", "Meningococcal"));
 
     }
 
@@ -68,13 +68,13 @@ public class Student extends Person {
     public Student() {
         super();
         this.immunizationmap = new HashMap<>();
-        immunizationmap.put("Hib", new Immunization("Haemophilus influenzae type b (Hib)"));
-        immunizationmap.put("Dtap", new Immunization("Diphtheria tetanus & acellular pertussis (DTaP)"));
-        immunizationmap.put("Polio", new Immunization("Inactivated poliovirus (IPV)"));
-        immunizationmap.put("Hepatitis B", new Immunization("Hepatitis B(Hepb)"));
-        immunizationmap.put("MMR", new Immunization("Measles mumps rubella (MMR)"));
-        immunizationmap.put("Varicella", new Immunization("Varicella (VAR)"));
-        immunizationmap.put("Meningococcal", new Immunization("Meningococcal"));
+        immunizationmap.put("Hib", new Immunization("4", "Haemophilus influenzae type b (Hib)"));
+        immunizationmap.put("Dtap", new Immunization("4", "Diphtheria tetanus & acellular pertussis (DTaP)"));
+        immunizationmap.put("Polio", new Immunization("3", "Inactivated poliovirus (IPV)"));
+        immunizationmap.put("Hepatitis B", new Immunization("3", "Hepatitis B(Hepb)"));
+        immunizationmap.put("MMR", new Immunization("1", "Measles mumps rubella (MMR)"));
+        immunizationmap.put("Varicella", new Immunization("1", "Varicella (VAR)"));
+        immunizationmap.put("Meningococcal", new Immunization("1", "Meningococcal"));
     }
 
     @Override
@@ -87,13 +87,13 @@ public class Student extends Person {
         this.stuID = stuID;
 
         this.immunizationmap = new HashMap<>();
-        immunizationmap.put("Hib", new Immunization("Haemophilus influenzae type b (Hib)"));
-        immunizationmap.put("Dtap", new Immunization("Diphtheria tetanus & acellular pertussis (DTaP)"));
-        immunizationmap.put("Polio", new Immunization("Inactivated poliovirus (IPV)"));
-        immunizationmap.put("Hepatitis B", new Immunization("Hepatitis B(Hepb)"));
-        immunizationmap.put("MMR", new Immunization("Measles mumps rubella (MMR)"));
-        immunizationmap.put("Varicella", new Immunization("Varicella (VAR)"));
-        immunizationmap.put("Meningococcal", new Immunization("Meningococcal"));
+        immunizationmap.put("Hib", new Immunization("4", "Haemophilus influenzae type b (Hib)"));
+        immunizationmap.put("Dtap", new Immunization("4", "Diphtheria tetanus & acellular pertussis (DTaP)"));
+        immunizationmap.put("Polio", new Immunization("3", "Inactivated poliovirus (IPV)"));
+        immunizationmap.put("Hepatitis B", new Immunization("3", "Hepatitis B(Hepb)"));
+        immunizationmap.put("MMR", new Immunization("1", "Measles mumps rubella (MMR)"));
+        immunizationmap.put("Varicella", new Immunization("1", "Varicella (VAR)"));
+        immunizationmap.put("Meningococcal", new Immunization("1", "Meningococcal"));
 
     }
 

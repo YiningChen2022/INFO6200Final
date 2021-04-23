@@ -28,6 +28,12 @@ public class Immunization {
         super();
     }
 
+    public Immunization(String does, String name) {
+        super();
+        this.dose = does;
+        this.immuName = name;
+    }
+    
     public Immunization(String name) {
         super();
         this.immuName = name;

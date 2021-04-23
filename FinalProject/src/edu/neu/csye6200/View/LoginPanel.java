@@ -180,22 +180,22 @@ public class LoginPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_txtPINKeyTyped
 
     private void btnLogInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogInActionPerformed
-        String username = "admin";
-        String s = "123456";
-        if (!username.equals(txtUNAME.getText())) {
-            JOptionPane.showMessageDialog(null, "Please input the valid username!");
-            return;
-        }
-        if (Arrays.equals(txtPIN.getPassword(), s.toCharArray())) {
-            JOptionPane.showMessageDialog(null, "Log in successfully!");
+//        String username = "admin";
+//        String s = "123456";
+//        if (!username.equals(txtUNAME.getText())) {
+//            JOptionPane.showMessageDialog(null, "Please input the valid username!");
+//            return;
+//        }
+//        if (Arrays.equals(txtPIN.getPassword(), s.toCharArray())) {
+//            JOptionPane.showMessageDialog(null, "Log in successfully!");
             txtPIN.setText("");
             ManageJPanel panel = new ManageJPanel(userProcessContainer, dataStore);
             userProcessContainer.add("ManageJPanel", panel);
             CardLayout layout = (CardLayout) userProcessContainer.getLayout();
             layout.next(userProcessContainer);
-        } else {
-            JOptionPane.showMessageDialog(null, "Please input the right password!");
-        }
+//        } else {
+//            JOptionPane.showMessageDialog(null, "Please input the right password!");
+//        }
     }//GEN-LAST:event_btnLogInActionPerformed
 
     private void btnStudentViewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStudentViewActionPerformed
