@@ -48,7 +48,7 @@ public class AllStudentsImmuJPanel extends javax.swing.JPanel {
         this.dataStore = dataStore;
         this.group = group;
         populate();
-        
+
     }
 
     /**
@@ -65,6 +65,7 @@ public class AllStudentsImmuJPanel extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         table = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
+        btnUpdate = new javax.swing.JButton();
 
         jPanel1.setBackground(new java.awt.Color(255, 153, 0));
         jPanel1.setPreferredSize(new java.awt.Dimension(900, 100));
@@ -117,19 +118,28 @@ public class AllStudentsImmuJPanel extends javax.swing.JPanel {
             }
         });
 
+        btnUpdate.setText("Update");
+        btnUpdate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUpdateActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 905, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(66, 66, 66)
-                        .addComponent(jButton1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(53, 53, 53)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 774, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btnUpdate)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(66, 66, 66)
+                            .addComponent(jButton1))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(53, 53, 53)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 774, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -138,7 +148,9 @@ public class AllStudentsImmuJPanel extends javax.swing.JPanel {
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(37, 37, 37)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 53, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(btnUpdate)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
                 .addComponent(jButton1)
                 .addGap(67, 67, 67))
         );
@@ -150,6 +162,20 @@ public class AllStudentsImmuJPanel extends javax.swing.JPanel {
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.previous(userProcessContainer);
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
+        // TODO add your handling code here:
+        int selectedRow = table.getSelectedRow();
+        if (selectedRow >= 0) {
+            Immunization imm = (Immunization) table.getValueAt(selectedRow, 0);
+            ImmunizationUpdatePanel panel = new ImmunizationUpdatePanel(userProcessContainer, dataStore, imm);
+            userProcessContainer.add("ImmunizationUpdatePanel", panel);
+            CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+            layout.next(userProcessContainer);
+        } else {
+            JOptionPane.showMessageDialog(null, "Please select a row from table first", "warning", JOptionPane.WARNING_MESSAGE);
+        }
+    }//GEN-LAST:event_btnUpdateActionPerformed
 
     private void populate() {
         DefaultTableModel dtm = (DefaultTableModel) table.getModel();
@@ -200,7 +226,7 @@ public class AllStudentsImmuJPanel extends javax.swing.JPanel {
             }
 
         });
-        
+
     }
 
     private boolean checkExpired(Immunization i) {
@@ -249,6 +275,7 @@ public class AllStudentsImmuJPanel extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnUpdate;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
