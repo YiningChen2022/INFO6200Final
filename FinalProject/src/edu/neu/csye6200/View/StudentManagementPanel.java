@@ -10,6 +10,11 @@ import edu.neu.csye6200.Controller.DataStore;
 import edu.neu.csye6200.Object.Group;
 import edu.neu.csye6200.Object.Student;
 import java.awt.CardLayout;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
@@ -25,6 +30,8 @@ public class StudentManagementPanel extends javax.swing.JPanel {
      */
     private JPanel userProcessContainer;
     private DataStore dataStore;
+    private static boolean hasExpiredCase = false;
+
 
     public StudentManagementPanel() {
 
@@ -35,6 +42,11 @@ public class StudentManagementPanel extends javax.swing.JPanel {
         this.userProcessContainer = userProcessContainer;
         this.dataStore = dataStore;
         populate();
+        alert();
+        
+       
+         
+        
 
     }
 
@@ -58,6 +70,7 @@ public class StudentManagementPanel extends javax.swing.JPanel {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         btnStuChange = new javax.swing.JButton();
+        annualRegistrationBtn = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
 
@@ -137,6 +150,13 @@ public class StudentManagementPanel extends javax.swing.JPanel {
             }
         });
 
+        annualRegistrationBtn.setText("Annual registration");
+        annualRegistrationBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                annualRegistrationBtnActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -157,13 +177,14 @@ public class StudentManagementPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(btnStuDelete, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnStuRegister, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnStuChange, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btnStuChange, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(annualRegistrationBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(51, 51, 51))
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 851, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 855, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 839, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(10, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -179,7 +200,9 @@ public class StudentManagementPanel extends javax.swing.JPanel {
                         .addComponent(btnStuDelete)
                         .addGap(18, 18, 18)
                         .addComponent(btnStuChange, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(59, 59, 59))
+                        .addGap(18, 18, 18)
+                        .addComponent(annualRegistrationBtn)
+                        .addGap(12, 12, 12))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(69, 69, 69)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -282,6 +305,21 @@ public class StudentManagementPanel extends javax.swing.JPanel {
 
     }//GEN-LAST:event_btnStuChangeActionPerformed
 
+    private void annualRegistrationBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_annualRegistrationBtnActionPerformed
+        // TODO add your handling code here:
+        int selectedRow = jTable1.getSelectedRow();
+        if (selectedRow >= 0) {
+            Student s = (Student) jTable1.getValueAt(selectedRow, 0);
+            StudentChangePanel panel = new StudentChangePanel(userProcessContainer, dataStore, s);
+            userProcessContainer.add("studentChangeJPanel", panel);
+            CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+            layout.next(userProcessContainer);
+        } else {
+            JOptionPane.showMessageDialog(null, "Please select a row from table first", "warning", JOptionPane.WARNING_MESSAGE);
+        }
+        
+    }//GEN-LAST:event_annualRegistrationBtnActionPerformed
+
     public void populate() {
         DefaultTableModel dtm = (DefaultTableModel) jTable1.getModel();
         dtm.setRowCount(0);
@@ -296,14 +334,76 @@ public class StudentManagementPanel extends javax.swing.JPanel {
                 row[3] = stu.getPhoneNumber();
                 row[6] = stu.getRegisterDate();
                 row[7] = stu.getBirthday();
-
+                
                 dtm.addRow(row);
+            
             }
+
+            
         }
 
     }
+    
+    public void alert() {
+        annualRegistrationBtn.setEnabled(false);
+        jTable1.addMouseListener(new MouseAdapter() {
+        public void mouseClicked(MouseEvent e) {
+        if(e.getClickCount()==1)
+        { int selectedRow=jTable1.getSelectedRow();
+          if (selectedRow >= 0) {
+            Student stu = (Student) jTable1.getValueAt(selectedRow, 0);
+            if(checkExpired(stu)==0){
+                    hasExpiredCase = false;
+                }else if(checkExpired(stu)==1) {
+                    hasExpiredCase = true;
+                }
+            if (hasExpiredCase) {
+            JOptionPane.showMessageDialog(null, "Student should register again!");
+            annualRegistrationBtn.setEnabled(true);
+            }
+            if (!hasExpiredCase) {
+            JOptionPane.showMessageDialog(null, "Annually re-registration comes in 7 days");
+            annualRegistrationBtn.setEnabled(false);
+            }
+        }
+
+        }   
+        }
+        });
+    }
+    
+    private Date getCurrentRegistrationDate(String currentRegistrationDate) {
+        SimpleDateFormat ft = new SimpleDateFormat("MM/dd/yyyy");
+        Date date = null;
+        try {
+            date = ft.parse(currentRegistrationDate);
+        } catch (ParseException e) {
+            System.out.println(e.getMessage());
+        }
+        return date;
+    }
+    
+    private int calculateDateInterval(String t1){
+        Date d1 = getCurrentRegistrationDate(t1);
+        Date d2 = new Date();
+        long l1 = d1.getTime();
+        long l2 = d2.getTime();
+        return (int)((l2 - l1) / (1000 * 60 * 60 * 24));
+    }
+    
+    private int checkExpired(Student s) {
+        String currentRegistrationDate = s.getRegisterDate();
+        if (358<=calculateDateInterval(currentRegistrationDate)&&calculateDateInterval(currentRegistrationDate)<365){
+            return 0;
+        }
+        else if (365<=calculateDateInterval(currentRegistrationDate)){
+            return 1;
+        }
+        return 1;
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton annualRegistrationBtn;
     private javax.swing.JButton btnSearch;
     private javax.swing.JButton btnStuChange;
     private javax.swing.JButton btnStuDelete;
