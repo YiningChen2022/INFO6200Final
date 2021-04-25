@@ -32,7 +32,6 @@ public class StudentManagementPanel extends javax.swing.JPanel {
     private DataStore dataStore;
     private static boolean hasExpiredCase = false;
 
-
     public StudentManagementPanel() {
 
     }
@@ -43,10 +42,6 @@ public class StudentManagementPanel extends javax.swing.JPanel {
         this.dataStore = dataStore;
         populate();
         alert();
-        
-       
-         
-        
 
     }
 
@@ -317,7 +312,7 @@ public class StudentManagementPanel extends javax.swing.JPanel {
         } else {
             JOptionPane.showMessageDialog(null, "Please select a row from table first", "warning", JOptionPane.WARNING_MESSAGE);
         }
-        
+
     }//GEN-LAST:event_annualRegistrationBtnActionPerformed
 
     public void populate() {
@@ -334,44 +329,39 @@ public class StudentManagementPanel extends javax.swing.JPanel {
                 row[3] = stu.getPhoneNumber();
                 row[6] = stu.getRegisterDate();
                 row[7] = stu.getBirthday();
-                
+
                 dtm.addRow(row);
-            
+
             }
 
-            
         }
 
     }
-    
+
     public void alert() {
         annualRegistrationBtn.setEnabled(false);
         jTable1.addMouseListener(new MouseAdapter() {
-        public void mouseClicked(MouseEvent e) {
-        if(e.getClickCount()==1)
-        { int selectedRow=jTable1.getSelectedRow();
-          if (selectedRow >= 0) {
-            Student stu = (Student) jTable1.getValueAt(selectedRow, 0);
-            if(checkExpired(stu)==0){
-                    hasExpiredCase = false;
-                }else if(checkExpired(stu)==1) {
-                    hasExpiredCase = true;
-                }
-            if (hasExpiredCase) {
-            JOptionPane.showMessageDialog(null, "Student should register again!");
-            annualRegistrationBtn.setEnabled(true);
-            }
-            if (!hasExpiredCase) {
-            JOptionPane.showMessageDialog(null, "Annually re-registration comes in 7 days");
-            annualRegistrationBtn.setEnabled(false);
-            }
-        }
+            public void mouseClicked(MouseEvent e) {
+                if (e.getClickCount() == 1) {
+                    int selectedRow = jTable1.getSelectedRow();
+                    if (selectedRow >= 0) {
+                        Student stu = (Student) jTable1.getValueAt(selectedRow, 0);
+                        if (checkExpired(stu) == 1) {
+                            JOptionPane.showMessageDialog(null, "Student should register again!");
+                            annualRegistrationBtn.setEnabled(true);
+                        } else if (checkExpired(stu) == 0) {
+                            JOptionPane.showMessageDialog(null, "Annually re-registration comes in 7 days");
+                            annualRegistrationBtn.setEnabled(false);
+                        } else {
+                            annualRegistrationBtn.setEnabled(false);
+                        }
+                    }
 
-        }   
-        }
+                }
+            }
         });
     }
-    
+
     private Date getCurrentRegistrationDate(String currentRegistrationDate) {
         SimpleDateFormat ft = new SimpleDateFormat("MM/dd/yyyy");
         Date date = null;
@@ -382,24 +372,23 @@ public class StudentManagementPanel extends javax.swing.JPanel {
         }
         return date;
     }
-    
-    private int calculateDateInterval(String t1){
+
+    private int calculateDateInterval(String t1) {
         Date d1 = getCurrentRegistrationDate(t1);
         Date d2 = new Date();
         long l1 = d1.getTime();
         long l2 = d2.getTime();
-        return (int)((l2 - l1) / (1000 * 60 * 60 * 24));
+        return (int) ((l2 - l1) / (1000 * 60 * 60 * 24));
     }
-    
+
     private int checkExpired(Student s) {
         String currentRegistrationDate = s.getRegisterDate();
-        if (358<=calculateDateInterval(currentRegistrationDate)&&calculateDateInterval(currentRegistrationDate)<365){
+        if (358 <= calculateDateInterval(currentRegistrationDate) && calculateDateInterval(currentRegistrationDate) < 365) {
             return 0;
-        }
-        else if (365<=calculateDateInterval(currentRegistrationDate)){
+        } else if (365 <= calculateDateInterval(currentRegistrationDate)) {
             return 1;
         }
-        return 1;
+        return 2;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
