@@ -7,9 +7,13 @@ package edu.neu.csye6200.View;
 
 import edu.neu.csye6200.Object.Classroom;
 import edu.neu.csye6200.Controller.DataStore;
+import edu.neu.csye6200.Controller.FileUtil;
 import edu.neu.csye6200.Object.Group;
+import edu.neu.csye6200.Object.Immunization;
 import edu.neu.csye6200.Object.Student;
 import java.awt.CardLayout;
+import java.awt.Color;
+import java.awt.Component;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.text.ParseException;
@@ -17,7 +21,9 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableCellRenderer;
 
 /**
  *
@@ -30,7 +36,7 @@ public class StudentManagementPanel extends javax.swing.JPanel {
      */
     private JPanel userProcessContainer;
     private DataStore dataStore;
-    private static boolean hasExpiredCase = false;
+    int expirationState = 2;
 
 
     public StudentManagementPanel() {
@@ -180,11 +186,11 @@ public class StudentManagementPanel extends javax.swing.JPanel {
                     .addComponent(btnStuChange, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(annualRegistrationBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(51, 51, 51))
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 855, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 851, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 839, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(10, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -279,6 +285,8 @@ public class StudentManagementPanel extends javax.swing.JPanel {
                     g.setCount(g.getCount() - 1);
                 }
             }
+            dataStore.getStuList().remove(stu);
+            FileUtil.writeCsv();
             JOptionPane.showMessageDialog(null, "Delete Successsfully");
             populate();
 
@@ -324,8 +332,7 @@ public class StudentManagementPanel extends javax.swing.JPanel {
         DefaultTableModel dtm = (DefaultTableModel) jTable1.getModel();
         dtm.setRowCount(0);
         for (Student stu : dataStore.getStuList()) {
-            if (stu.isRegisterState()) {
-                Object row[] = new Object[8];
+            Object row[] = new Object[8];
                 row[0] = stu;
                 row[1] = stu.getFirstName() + " " + stu.getLastName();
                 row[2] = stu.getAge();
@@ -336,10 +343,32 @@ public class StudentManagementPanel extends javax.swing.JPanel {
                 row[7] = stu.getBirthday();
                 
                 dtm.addRow(row);
-            
+            jTable1.setDefaultRenderer(Object.class, new TableCellRenderer() {
+            private DefaultTableCellRenderer DEFAULT_RENDERER = new DefaultTableCellRenderer();
+
+            @Override
+            public Component getTableCellRendererComponent(javax.swing.JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column) {
+                Component c = DEFAULT_RENDERER.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
+                if (column == 0) {
+                    System.out.println(value);
+                    Student s = (Student) value;
+                    
+                    if(checkExpired(s)==1){
+                        s.setRegisterState(false);
+                    }else{
+                        s.setRegisterState(true);
+                    }
+                    
+                    if (!s.isRegisterState()) {
+                        c.setBackground(Color.RED);
+                    } else {
+                        c.setBackground(Color.WHITE);
+                    }
+                }
+                return c;
             }
 
-            
+        });
         }
 
     }
@@ -352,18 +381,28 @@ public class StudentManagementPanel extends javax.swing.JPanel {
         { int selectedRow=jTable1.getSelectedRow();
           if (selectedRow >= 0) {
             Student stu = (Student) jTable1.getValueAt(selectedRow, 0);
-            if(checkExpired(stu)==0){
-                    hasExpiredCase = false;
-                }else if(checkExpired(stu)==1) {
-                    hasExpiredCase = true;
-                }
-            if (hasExpiredCase) {
+            switch (checkExpired(stu)) {
+                case 0:
+                    expirationState = 0;
+                    break;
+                case 1:
+                    expirationState = 1;
+                    break;
+                default:
+                    expirationState = 2;
+                    break;
+            }
+            if (expirationState == 0) {
+            JOptionPane.showMessageDialog(null, "Annually re-registration comes in 7 days");
+            annualRegistrationBtn.setEnabled(false);
+            }
+            if (expirationState == 1) {
             JOptionPane.showMessageDialog(null, "Student should register again!");
             annualRegistrationBtn.setEnabled(true);
             }
-            if (!hasExpiredCase) {
-            JOptionPane.showMessageDialog(null, "Annually re-registration comes in 7 days");
-            annualRegistrationBtn.setEnabled(false);
+            if (expirationState == 2){
+            JOptionPane.showMessageDialog(null, "Student's registration is still valid");
+            annualRegistrationBtn.setEnabled(false);    
             }
         }
 
@@ -373,7 +412,7 @@ public class StudentManagementPanel extends javax.swing.JPanel {
     }
     
     private Date getCurrentRegistrationDate(String currentRegistrationDate) {
-        SimpleDateFormat ft = new SimpleDateFormat("MM/dd/yyyy");
+        SimpleDateFormat ft = new SimpleDateFormat("M/dd/yyyy");
         Date date = null;
         try {
             date = ft.parse(currentRegistrationDate);
@@ -399,7 +438,7 @@ public class StudentManagementPanel extends javax.swing.JPanel {
         else if (365<=calculateDateInterval(currentRegistrationDate)){
             return 1;
         }
-        return 1;
+        return 2;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

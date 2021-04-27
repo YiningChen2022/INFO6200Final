@@ -6,6 +6,7 @@
 package edu.neu.csye6200.View;
 
 import edu.neu.csye6200.Controller.DataStore;
+import edu.neu.csye6200.Controller.FileUtil;
 import edu.neu.csye6200.Controller.RatioRule;
 import edu.neu.csye6200.Object.Student;
 import java.awt.CardLayout;
@@ -641,7 +642,7 @@ public class StudentRegisterPanel extends javax.swing.JPanel {
         String teleNumber = txtPnumber.getText();
         String birthday = txtbirthday.getText();
         Date date = new Date();
-        SimpleDateFormat dateFormat = new SimpleDateFormat("YYYY-MM-dd");
+        SimpleDateFormat dateFormat = new SimpleDateFormat("M/dd/yyyy");
         String registerdate = dateFormat.format(date);
 
         String[] arrayHebp = {txtHepb1.getText(), txtHepb2.getText(), txtHepb3.getText(), txtHepb4.getText(), txtHepb5.getText()};
@@ -661,8 +662,10 @@ public class StudentRegisterPanel extends javax.swing.JPanel {
         stu.getImmunizationmap().get("Polio").setDate(arrayIPV);
         stu.getImmunizationmap().get("Varicella").setDate(arrayVAR);
         stu.getImmunizationmap().get("Meningococcal").setDate(arrayMeningococcal);
+        stu.setRegisterState(true);
         System.out.println(stu.getFirstName());
         RatioRule.addStu(stu, dataStore);
+        FileUtil.writeCsv();
 
         for (Student s : dataStore.getStuList()) {
             System.out.println(s);

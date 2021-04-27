@@ -6,6 +6,7 @@
 package edu.neu.csye6200.View;
 
 import edu.neu.csye6200.Controller.DataStore;
+import edu.neu.csye6200.Controller.FileUtil;
 import edu.neu.csye6200.Controller.RatioRule;
 import edu.neu.csye6200.Object.Student;
 import edu.neu.csye6200.Object.Teacher;
@@ -331,21 +332,20 @@ public class StudentChangePanel extends javax.swing.JPanel {
         RatioRule.techTogroup(dataStore.getTchList(), dataStore);
 
         if (txtFname.getText().equals("") | txtLname.getText().equals("") | txtAge.getText().equals("")) {
-            JOptionPane.showMessageDialog(null, "Teacher's information can not be empty");
+            JOptionPane.showMessageDialog(null, "Student's information can not be empty");
             return;
         }
 
         try {
             Integer.parseInt(txtAge.getText());
         } catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(null, "Teacher's age can not be letters");
+            JOptionPane.showMessageDialog(null, "Student's age can not be letters");
             return;
         }
 
         //int tchId 
         String Fname = txtFname.getText();
         String Lname = txtLname.getText();
-        String Phone = txtPnumber.getText();
         String Address = txtAddress.getText();
         String Age = txtAge.getText();
         String Pnumber = txtPnumber.getText();
@@ -362,7 +362,7 @@ public class StudentChangePanel extends javax.swing.JPanel {
         student.setPhoneNumber(Pnumber);
         student.setParentLastName(Plname);
         student.setBirthday(Birthday);
-        student.setRegisterState(true);
+        FileUtil.writeCsv();
 
         String success = "Change successfully!";
         txtFname.setEnabled(false);
@@ -398,6 +398,7 @@ public class StudentChangePanel extends javax.swing.JPanel {
         SimpleDateFormat dateFormat = new SimpleDateFormat("M/dd/yyyy");
         String registerdate = dateFormat.format(date);
         student.setRegisterDate(registerdate);
+        FileUtil.writeCsv();
         String success = "Re-registration is successful!";
         JOptionPane.showMessageDialog(null, success);
         toStudentInfoScreen();

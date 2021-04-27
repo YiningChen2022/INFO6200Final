@@ -6,6 +6,7 @@
 package edu.neu.csye6200.View;
 
 import edu.neu.csye6200.Controller.DataStore;
+import edu.neu.csye6200.Controller.FileUtil;
 import edu.neu.csye6200.Controller.RatioRule;
 import edu.neu.csye6200.Object.Teacher;
 import java.awt.CardLayout;
@@ -239,6 +240,7 @@ public class TeacherRegisterPanel extends javax.swing.JPanel {
         RatioRule.techTogroup(dataStore.getTchList(), dataStore);
 
         RatioRule.addTech(teacher, dataStore);
+        FileUtil.writeTeacherCsv();
         String success = "Register successfully! and arranege to group" + teacher.getGroupID();
         for (Teacher t : dataStore.getTchList()) {
             System.out.println(t);

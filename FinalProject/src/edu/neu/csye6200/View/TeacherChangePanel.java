@@ -6,10 +6,13 @@
 package edu.neu.csye6200.View;
 
 import edu.neu.csye6200.Controller.DataStore;
+import edu.neu.csye6200.Controller.FileUtil;
 import edu.neu.csye6200.Controller.RatioRule;
 import edu.neu.csye6200.Object.Teacher;
 import java.awt.CardLayout;
 import java.awt.Component;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -81,6 +84,7 @@ public class TeacherChangePanel extends javax.swing.JPanel {
         saveBtn = new javax.swing.JButton();
         txtGroupid = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
+        reviewBtn = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
 
@@ -171,6 +175,13 @@ public class TeacherChangePanel extends javax.swing.JPanel {
 
         jLabel8.setText("GroupID:");
 
+        reviewBtn.setText("Review");
+        reviewBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                reviewBtnActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -205,7 +216,9 @@ public class TeacherChangePanel extends javax.swing.JPanel {
                         .addGap(35, 35, 35)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(txtGroupid, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(saveBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(saveBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(63, 63, 63)
+                        .addComponent(reviewBtn)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -248,7 +261,9 @@ public class TeacherChangePanel extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(updateBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(saveBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(saveBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(reviewBtn)))))
                 .addContainerGap(69, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -308,7 +323,7 @@ public class TeacherChangePanel extends javax.swing.JPanel {
         teacher.setLastName(tchLname);
         teacher.setPhoneNumber(phone);
         teacher.setAddress(address);
-        teacher.setRegisterState(true);
+        FileUtil.writeTeacherCsv();
         //RatioRule.techTogroup(dataStore.getTchList(), dataStore);
         //RatioRule.changeTech(teacher, dataStore);
 
@@ -332,6 +347,19 @@ public class TeacherChangePanel extends javax.swing.JPanel {
 
 
     }//GEN-LAST:event_txtGroupidActionPerformed
+
+    private void reviewBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reviewBtnActionPerformed
+        // TODO add your handling code here:
+        teacher.setRegisterState(true);
+        Date date = new Date();
+        SimpleDateFormat dateFormat = new SimpleDateFormat("YYYY-MM-dd");
+        String registerdate = dateFormat.format(date);
+        teacher.setRegisterDate(registerdate);
+        FileUtil.writeTeacherCsv();
+        String success = "Annual review is successful!";
+        JOptionPane.showMessageDialog(null, success);
+        toTeacherInfoScreen();
+    }//GEN-LAST:event_reviewBtnActionPerformed
     private void toTeacherInfoScreen() {
         CardLayout layout = (CardLayout) this.userProcessContainer.getLayout();
         this.userProcessContainer.remove(this);
@@ -360,6 +388,7 @@ public class TeacherChangePanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JButton reviewBtn;
     private javax.swing.JButton saveBtn;
     private javax.swing.JTextField txtGroupid;
     private javax.swing.JTextField txtTchAddress;
