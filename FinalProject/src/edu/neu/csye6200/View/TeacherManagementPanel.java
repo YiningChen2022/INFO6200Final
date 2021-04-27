@@ -6,12 +6,23 @@
 package edu.neu.csye6200.View;
 
 import edu.neu.csye6200.Controller.DataStore;
+import edu.neu.csye6200.Controller.FileUtil;
 import edu.neu.csye6200.Object.Group;
+import edu.neu.csye6200.Object.Student;
 import edu.neu.csye6200.Object.Teacher;
 import java.awt.CardLayout;
+import java.awt.Color;
+import java.awt.Component;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableCellRenderer;
 
 /**
  *
@@ -24,6 +35,7 @@ public class TeacherManagementPanel extends javax.swing.JPanel {
      */
     private JPanel userProcessContainer;
     private DataStore dataStore;
+    int expirationState = 2;
 
     public TeacherManagementPanel() {
 
@@ -35,6 +47,7 @@ public class TeacherManagementPanel extends javax.swing.JPanel {
         this.userProcessContainer = userProcessContainer;
         this.dataStore = dataStore;
         populate();
+        alert();
     }
 
     /**
@@ -57,6 +70,7 @@ public class TeacherManagementPanel extends javax.swing.JPanel {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         btnRegister1 = new javax.swing.JButton();
+        reviewBtn = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setPreferredSize(new java.awt.Dimension(900, 600));
@@ -112,7 +126,6 @@ public class TeacherManagementPanel extends javax.swing.JPanel {
 
         jPanel1.setBackground(new java.awt.Color(255, 153, 0));
         jPanel1.setPreferredSize(new java.awt.Dimension(900, 100));
-        jPanel1.setSize(new java.awt.Dimension(900, 100));
 
         jLabel1.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
         jLabel1.setText("Teacher Information Management");
@@ -141,6 +154,13 @@ public class TeacherManagementPanel extends javax.swing.JPanel {
             }
         });
 
+        reviewBtn.setText("Annual Review");
+        reviewBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                reviewBtnActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -165,6 +185,8 @@ public class TeacherManagementPanel extends javax.swing.JPanel {
                         .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jButton4)
+                        .addGap(58, 58, 58)
+                        .addComponent(reviewBtn)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jButton2)
@@ -188,7 +210,9 @@ public class TeacherManagementPanel extends javax.swing.JPanel {
                         .addComponent(jButton3))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(41, 41, 41)
-                        .addComponent(btnRegister)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btnRegister)
+                            .addComponent(reviewBtn))
                         .addGap(18, 18, 18)
                         .addComponent(jButton2)
                         .addGap(18, 18, 18)
@@ -252,6 +276,8 @@ public class TeacherManagementPanel extends javax.swing.JPanel {
                     g.setTech(false);
                 }
             }
+            dataStore.getTchList().remove(t);
+            FileUtil.writeTeacherCsv();
             JOptionPane.showMessageDialog(null, "Delete Successsfully");
             populate();
 
@@ -276,23 +302,131 @@ public class TeacherManagementPanel extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null, "Please select a row from table first", "warning", JOptionPane.WARNING_MESSAGE);
         }
     }//GEN-LAST:event_btnRegister1ActionPerformed
+
+    private void reviewBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reviewBtnActionPerformed
+        // TODO add your handling code here:
+        int selectedRow = jTable1.getSelectedRow();
+        if (selectedRow >= 0) {
+           Teacher t = (Teacher) jTable1.getValueAt(selectedRow, 0);
+            TeacherChangePanel panel = new TeacherChangePanel(userProcessContainer, dataStore, t);
+            userProcessContainer.add("ChangeTeacherJPanel", panel);
+            CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+            layout.next(userProcessContainer);
+        } else {
+            JOptionPane.showMessageDialog(null, "Please select a row from table first", "warning", JOptionPane.WARNING_MESSAGE);
+        }
+    }//GEN-LAST:event_reviewBtnActionPerformed
     public void populate() {
 
         DefaultTableModel dtm = (DefaultTableModel) jTable1.getModel();
         dtm.setRowCount(0);
         for (Teacher t : dataStore.getTchList()) {
-            if (t.isRegisterState()) {
-                Object row[] = new Object[7];
-                row[0] = t;
-                row[1] = t.getFirstName();
-                row[2] = t.getLastName();
-                row[3] = t.getAge();
-                row[4] = t.getRegisterDate();
-                row[5] = t.getPhoneNumber();
-                row[6] = t.getAddress();
-                dtm.addRow(row);
+            
+            Object row[] = new Object[7];
+            row[0] = t;
+            row[1] = t.getFirstName();
+            row[2] = t.getLastName();
+            row[3] = t.getAge();
+            row[4] = t.getRegisterDate();
+            row[5] = t.getPhoneNumber();
+            row[6] = t.getAddress();
+            dtm.addRow(row);
+            jTable1.setDefaultRenderer(Object.class, new TableCellRenderer() {
+            private DefaultTableCellRenderer DEFAULT_RENDERER = new DefaultTableCellRenderer();
+
+            @Override
+            public Component getTableCellRendererComponent(javax.swing.JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column) {
+                Component c = DEFAULT_RENDERER.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
+                if (column == 0) {
+                    System.out.println(value);
+                    Teacher t = (Teacher) value;
+                    
+                    if(checkExpired(t)==1){
+                        t.setRegisterState(false);
+                    }else{
+                        t.setRegisterState(true);
+                    }
+                    
+                    if (!t.isRegisterState()) {
+                        c.setBackground(Color.RED);
+                    } else {
+                        c.setBackground(Color.WHITE);
+                    }
+                }
+                return c;
+            }
+
+        });
+            
+        }
+    }
+    
+    public void alert() {
+        reviewBtn.setEnabled(false);
+        jTable1.addMouseListener(new MouseAdapter() {
+        public void mouseClicked(MouseEvent e) {
+        if(e.getClickCount()==1)
+        { int selectedRow=jTable1.getSelectedRow();
+          if (selectedRow >= 0) {
+            Teacher t = (Teacher) jTable1.getValueAt(selectedRow, 0);
+            switch (checkExpired(t)) {
+                case 0:
+                    expirationState = 0;
+                    break;
+                case 1:
+                    expirationState = 1;
+                    break;
+                default:
+                    expirationState = 2;
+                    break;
+            }
+            if (expirationState == 0) {
+            JOptionPane.showMessageDialog(null, "Annually review comes in 7 days");
+            reviewBtn.setEnabled(false);
+            }
+            if (expirationState == 1) {
+            JOptionPane.showMessageDialog(null, "Teacher should be reviewed !");
+            reviewBtn.setEnabled(true);
+            }
+            if (expirationState == 2){
+            JOptionPane.showMessageDialog(null, "Teacher's certification is still valid");
+            reviewBtn.setEnabled(false);    
             }
         }
+
+        }   
+        }
+        });
+    }
+    
+    private Date getCurrentRegistrationDate(String currentRegistrationDate) {
+        SimpleDateFormat ft = new SimpleDateFormat("YYYY-MM-dd");
+        Date date = null;
+        try {
+            date = ft.parse(currentRegistrationDate);
+        } catch (ParseException e) {
+            System.out.println(e.getMessage());
+        }
+        return date;
+    }
+    
+    private int calculateDateInterval(String t1){
+        Date d1 = getCurrentRegistrationDate(t1);
+        Date d2 = new Date();
+        long l1 = d1.getTime();
+        long l2 = d2.getTime();
+        return (int)((l2 - l1) / (1000 * 60 * 60 * 24));
+    }
+    
+    private int checkExpired(Teacher t) {
+        String currentRegistrationDate = t.getRegisterDate();
+        if (358<=calculateDateInterval(currentRegistrationDate)&&calculateDateInterval(currentRegistrationDate)<365){
+            return 0;
+        }
+        else if (365<=calculateDateInterval(currentRegistrationDate)){
+            return 1;
+        }
+        return 2;
     }
 
 
@@ -308,5 +442,6 @@ public class TeacherManagementPanel extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextField1;
+    private javax.swing.JButton reviewBtn;
     // End of variables declaration//GEN-END:variables
 }
