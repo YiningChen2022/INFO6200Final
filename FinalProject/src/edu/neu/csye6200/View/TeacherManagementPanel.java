@@ -216,7 +216,7 @@ public class TeacherManagementPanel extends javax.swing.JPanel {
             DefaultTableModel dtm = (DefaultTableModel) jTable1.getModel();
             dtm.setRowCount(0);
             for (Teacher t : dataStore.getTchList()) {
-                if (t.isRegisterState() && t.getTeacherID() == tid) {
+                if ( t.getTeacherID() == tid) {
                     Object row[] = new Object[7];
                     row[0] = t;
                     row[1] = t.getFirstName();

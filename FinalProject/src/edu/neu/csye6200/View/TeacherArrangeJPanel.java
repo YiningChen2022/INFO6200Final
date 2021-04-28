@@ -14,10 +14,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 
-/**
- *
- * @author chenyu
- */
+
 public class TeacherArrangeJPanel extends javax.swing.JPanel {
 
     /**

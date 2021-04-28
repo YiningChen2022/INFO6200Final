@@ -5,10 +5,6 @@
  */
 package edu.neu.csye6200.Object;
 
-/**
- *
- * @author lln
- */
 public class GroupFactory extends AbstractGroupFactory {
 
     private static GroupFactory groupFactory;

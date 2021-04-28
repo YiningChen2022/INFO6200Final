@@ -9,10 +9,7 @@ import edu.neu.csye6200.Controller.DataStore;
 import java.awt.CardLayout;
 import javax.swing.JPanel;
 
-/**
- *
- * @author Lilly
- */
+
 public class ManageJPanel extends javax.swing.JPanel {
 
     /**

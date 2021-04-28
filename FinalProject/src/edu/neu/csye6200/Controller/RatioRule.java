@@ -8,10 +8,7 @@ package edu.neu.csye6200.Controller;
 import edu.neu.csye6200.Object.*;
 import java.util.List;
 
-/**
- *
- * @author lln
- */
+
 public class RatioRule {
 
     public static void stuTogroup(List<Student> students, DataStore dataStore) {

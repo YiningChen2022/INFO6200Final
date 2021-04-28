@@ -19,10 +19,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-/**
- *
- * @author lln
- */
+
 public class FileUtil {
     static List<Student> students = new ArrayList<>();
     static List<Teacher> teachers = new ArrayList<>();

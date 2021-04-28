@@ -8,10 +8,6 @@ package edu.neu.csye6200.Object;
 import java.util.HashMap;
 import java.util.Map;
 
-/**
- *
- * @author lln
- */
 public class Student extends Person {
 
     private int stuID;

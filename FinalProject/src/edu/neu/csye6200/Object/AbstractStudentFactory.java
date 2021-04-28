@@ -5,10 +5,7 @@
  */
 package edu.neu.csye6200.Object;
 
-/**
- *
- * @author lln
- */
+
 public abstract class AbstractStudentFactory {
 
     public abstract Student getObject();

@@ -5,10 +5,6 @@
  */
 package edu.neu.csye6200.Object;
 
-/**
- *
- * @author lln
- */
 public abstract class AbstractGroup {
 
     private int groupID;

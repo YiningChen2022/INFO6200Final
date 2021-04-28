@@ -8,10 +8,7 @@ package edu.neu.csye6200.Object;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- *
- * @author lln
- */
+
 public abstract class AbstractClassroom {
 
     private int classId;
