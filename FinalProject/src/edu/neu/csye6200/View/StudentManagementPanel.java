@@ -221,7 +221,7 @@ public class StudentManagementPanel extends javax.swing.JPanel {
             DefaultTableModel dtm = (DefaultTableModel) jTable1.getModel();
             dtm.setRowCount(0);
             for (Student stu : dataStore.getStuList()) {
-                if (stu.isRegisterState() && stu.getStuID() == stuid) {
+                if ( stu.getStuID() == stuid) {
                     Object row[] = new Object[7];
                     row[0] = stu;
                     row[1] = stu.getFirstName() + " " + stu.getLastName();
