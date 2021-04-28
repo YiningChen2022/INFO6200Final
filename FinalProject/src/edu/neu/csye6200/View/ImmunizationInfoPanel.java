@@ -108,7 +108,7 @@ public class ImmunizationInfoPanel extends javax.swing.JPanel {
         add(jButton1);
         jButton1.setBounds(99, 443, 97, 29);
 
-        jPanel1.setBackground(new java.awt.Color(255, 153, 0));
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setPreferredSize(new java.awt.Dimension(900, 100));
 
         jLabel2.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N

@@ -143,7 +143,7 @@ public class ImmunizationRecordPanel extends javax.swing.JPanel {
         add(jButton3);
         jButton3.setBounds(746, 481, 105, 29);
 
-        jPanel1.setBackground(new java.awt.Color(255, 153, 51));
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setPreferredSize(new java.awt.Dimension(900, 100));
 
         jLabel1.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N

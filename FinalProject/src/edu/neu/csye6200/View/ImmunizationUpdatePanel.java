@@ -139,7 +139,7 @@ public class ImmunizationUpdatePanel extends javax.swing.JPanel {
         jPanel2.add(txtDate);
         txtDate.setBounds(671, 146, 101, 26);
 
-        jPanel1.setBackground(new java.awt.Color(255, 153, 51));
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setPreferredSize(new java.awt.Dimension(900, 100));
 
         jLabel8.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
