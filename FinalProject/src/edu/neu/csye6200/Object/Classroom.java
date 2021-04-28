@@ -6,10 +6,7 @@
 package edu.neu.csye6200.Object;
 
 
-/**
- *
- * @author lln
- */
+
 public class Classroom extends AbstractClassroom {
 
     public Classroom() {

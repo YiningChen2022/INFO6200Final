@@ -15,10 +15,7 @@ import java.util.Date;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
-/**
- *
- * @author chenyu
- */
+
 public class ImmunizationUpdatePanel extends javax.swing.JPanel {
 
     /**

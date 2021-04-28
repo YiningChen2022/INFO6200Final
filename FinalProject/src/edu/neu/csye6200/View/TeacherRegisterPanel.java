@@ -17,10 +17,6 @@ import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
-/**
- *
- * @author chenyu
- */
 public class TeacherRegisterPanel extends javax.swing.JPanel {
 
     /**

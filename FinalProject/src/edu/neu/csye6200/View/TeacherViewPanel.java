@@ -13,10 +13,7 @@ import java.util.List;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 
-/**
- *
- * @author chenyu
- */
+
 public class TeacherViewPanel extends javax.swing.JPanel {
 
     /**

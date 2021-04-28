@@ -10,10 +10,7 @@ import edu.neu.csye6200.Object.Immunization;
 import java.awt.CardLayout;
 import javax.swing.JPanel;
 
-/**
- *
- * @author chenyu
- */
+
 public class ImmunizationInfoPanel extends javax.swing.JPanel {
 
     /**

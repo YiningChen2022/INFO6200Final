@@ -5,10 +5,7 @@
  */
 package edu.neu.csye6200.Object;
 
-/**
- *
- * @author lln
- */
+
 public class ClassroomFactory extends AbstractClassroomFactory {
 
     private static ClassroomFactory classroomFactory;

@@ -11,10 +11,7 @@ import java.util.Arrays;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
-/**
- *
- * @author chenyu
- */
+
 public class LoginPanel extends javax.swing.JPanel {
 
     /**
