@@ -85,18 +85,30 @@ public class TeacherChangePanel extends javax.swing.JPanel {
         txtGroupid = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         reviewBtn = new javax.swing.JButton();
+        jLabel9 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
+        setLayout(null);
 
         jLabel2.setText("Teacher ID:");
+        add(jLabel2);
+        jLabel2.setBounds(240, 133, 71, 16);
 
         txtTchId.setEnabled(false);
+        add(txtTchId);
+        txtTchId.setBounds(365, 128, 109, 26);
 
         jLabel3.setText("First Name:");
+        add(jLabel3);
+        jLabel3.setBounds(240, 171, 72, 16);
 
         txtTchFname.setEnabled(false);
+        add(txtTchFname);
+        txtTchFname.setBounds(365, 166, 109, 26);
 
         jLabel4.setText("Last Name:");
+        add(jLabel4);
+        jLabel4.setBounds(240, 203, 70, 16);
 
         txtTchLname.setEnabled(false);
         txtTchLname.addActionListener(new java.awt.event.ActionListener() {
@@ -104,8 +116,12 @@ public class TeacherChangePanel extends javax.swing.JPanel {
                 txtTchLnameActionPerformed(evt);
             }
         });
+        add(txtTchLname);
+        txtTchLname.setBounds(365, 198, 109, 26);
 
         jLabel5.setText("Age:");
+        add(jLabel5);
+        jLabel5.setBounds(240, 240, 28, 16);
 
         txtTchAge.setEnabled(false);
         txtTchAge.addActionListener(new java.awt.event.ActionListener() {
@@ -113,6 +129,8 @@ public class TeacherChangePanel extends javax.swing.JPanel {
                 txtTchAgeActionPerformed(evt);
             }
         });
+        add(txtTchAge);
+        txtTchAge.setBounds(365, 235, 109, 26);
 
         jButton1.setText("<< Back");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -120,14 +138,24 @@ public class TeacherChangePanel extends javax.swing.JPanel {
                 jButton1ActionPerformed(evt);
             }
         });
+        add(jButton1);
+        jButton1.setBounds(76, 452, 97, 29);
 
         jLabel6.setText("Phone:");
+        add(jLabel6);
+        jLabel6.setBounds(240, 281, 42, 16);
 
         txtTchPhone.setEnabled(false);
+        add(txtTchPhone);
+        txtTchPhone.setBounds(365, 276, 109, 26);
 
         jLabel7.setText("Address:");
+        add(jLabel7);
+        jLabel7.setBounds(240, 341, 55, 16);
 
         txtTchAddress.setEnabled(false);
+        add(txtTchAddress);
+        txtTchAddress.setBounds(365, 336, 109, 26);
 
         jPanel1.setBackground(new java.awt.Color(255, 153, 0));
         jPanel1.setPreferredSize(new java.awt.Dimension(900, 100));
@@ -152,12 +180,17 @@ public class TeacherChangePanel extends javax.swing.JPanel {
                 .addGap(36, 36, 36))
         );
 
+        add(jPanel1);
+        jPanel1.setBounds(0, 0, 900, 100);
+
         updateBtn.setText("Update");
         updateBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 updateBtnActionPerformed(evt);
             }
         });
+        add(updateBtn);
+        updateBtn.setBounds(240, 439, 88, 38);
 
         saveBtn.setText("Save");
         saveBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -165,6 +198,8 @@ public class TeacherChangePanel extends javax.swing.JPanel {
                 saveBtnActionPerformed(evt);
             }
         });
+        add(saveBtn);
+        saveBtn.setBounds(384, 436, 88, 41);
 
         txtGroupid.setEnabled(false);
         txtGroupid.addActionListener(new java.awt.event.ActionListener() {
@@ -172,8 +207,12 @@ public class TeacherChangePanel extends javax.swing.JPanel {
                 txtGroupidActionPerformed(evt);
             }
         });
+        add(txtGroupid);
+        txtGroupid.setBounds(363, 383, 109, 26);
 
         jLabel8.setText("GroupID:");
+        add(jLabel8);
+        jLabel8.setBounds(240, 368, 56, 56);
 
         reviewBtn.setText("Review");
         reviewBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -181,91 +220,12 @@ public class TeacherChangePanel extends javax.swing.JPanel {
                 reviewBtnActionPerformed(evt);
             }
         });
+        add(reviewBtn);
+        reviewBtn.setBounds(535, 442, 87, 29);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(76, 76, 76)
-                .addComponent(jButton1)
-                .addGap(67, 67, 67)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel4)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel5)
-                    .addComponent(jLabel6)
-                    .addComponent(jLabel7)
-                    .addComponent(updateBtn)
-                    .addComponent(jLabel8))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(37, 37, 37)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(txtTchId, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtTchFname, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtTchLname, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtTchAge, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtTchPhone)
-                            .addComponent(txtTchAddress, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(35, 35, 35)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(txtGroupid, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(saveBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(63, 63, 63)
-                        .addComponent(reviewBtn)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(txtTchId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(12, 12, 12)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(txtTchFname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtTchLname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4))
-                .addGap(11, 11, 11)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(txtTchAge, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(15, 15, 15)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
-                    .addComponent(txtTchPhone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(34, 34, 34)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7)
-                    .addComponent(txtTchAddress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(90, 90, 90)
-                        .addComponent(jButton1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtGroupid, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(updateBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(saveBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(reviewBtn)))))
-                .addContainerGap(69, Short.MAX_VALUE))
-        );
+        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/neu/csye6200/View/icon/back.jpg"))); // NOI18N
+        add(jLabel9);
+        jLabel9.setBounds(0, 96, 900, 510);
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtTchAgeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTchAgeActionPerformed
@@ -387,6 +347,7 @@ public class TeacherChangePanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JButton reviewBtn;
     private javax.swing.JButton saveBtn;
