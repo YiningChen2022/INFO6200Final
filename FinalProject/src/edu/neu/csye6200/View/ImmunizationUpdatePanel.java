@@ -74,7 +74,7 @@ public class ImmunizationUpdatePanel extends javax.swing.JPanel {
         jLabel8 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
 
-        setLayout(null);
+        setLayout(new java.awt.CardLayout());
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setLayout(null);
@@ -152,12 +152,12 @@ public class ImmunizationUpdatePanel extends javax.swing.JPanel {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(100, 100, 100)
                 .addComponent(jLabel8)
-                .addContainerGap(530, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(42, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel8)
                 .addGap(36, 36, 36))
         );
@@ -167,10 +167,9 @@ public class ImmunizationUpdatePanel extends javax.swing.JPanel {
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/neu/csye6200/View/icon/back.jpg"))); // NOI18N
         jPanel2.add(jLabel7);
-        jLabel7.setBounds(0, 96, 900, 510);
+        jLabel7.setBounds(0, 80, 1400, 710);
 
-        add(jPanel2);
-        jPanel2.setBounds(0, 0, 0, 0);
+        add(jPanel2, "card2");
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
