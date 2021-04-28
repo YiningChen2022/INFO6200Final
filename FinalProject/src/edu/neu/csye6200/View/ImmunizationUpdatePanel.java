@@ -170,7 +170,7 @@ public class ImmunizationUpdatePanel extends javax.swing.JPanel {
         jLabel7.setBounds(0, 96, 900, 510);
 
         add(jPanel2);
-        jPanel2.setBounds(0, 0, 900, 587);
+        jPanel2.setBounds(0, 0, 0, 0);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed

@@ -43,9 +43,11 @@ public class LoginPanel extends javax.swing.JPanel {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
         txtPIN = new javax.swing.JPasswordField();
         jLabel3 = new javax.swing.JLabel();
         btnLogIn = new javax.swing.JButton();
+        jLabel8 = new javax.swing.JLabel();
         btnStudentView = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
@@ -60,6 +62,11 @@ public class LoginPanel extends javax.swing.JPanel {
         setPreferredSize(new java.awt.Dimension(900, 600));
         setLayout(null);
 
+        jLabel7.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
+        jLabel7.setText("Quick View:");
+        add(jLabel7);
+        jLabel7.setBounds(220, 410, 170, 22);
+
         txtPIN.setFont(new java.awt.Font("Aharoni", 0, 18)); // NOI18N
         txtPIN.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -72,12 +79,12 @@ public class LoginPanel extends javax.swing.JPanel {
             }
         });
         add(txtPIN);
-        txtPIN.setBounds(350, 253, 291, 32);
+        txtPIN.setBounds(350, 230, 291, 32);
 
         jLabel3.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
         jLabel3.setText("Password:");
         add(jLabel3);
-        jLabel3.setBounds(231, 258, 93, 22);
+        jLabel3.setBounds(220, 230, 93, 22);
 
         btnLogIn.setText("Teacher Login");
         btnLogIn.addActionListener(new java.awt.event.ActionListener() {
@@ -86,7 +93,12 @@ public class LoginPanel extends javax.swing.JPanel {
             }
         });
         add(btnLogIn);
-        btnLogIn.setBounds(460, 326, 132, 30);
+        btnLogIn.setBounds(370, 290, 132, 30);
+
+        jLabel8.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
+        jLabel8.setText("Or");
+        add(jLabel8);
+        jLabel8.setBounds(420, 360, 97, 22);
 
         btnStudentView.setText("Student View");
         btnStudentView.addActionListener(new java.awt.event.ActionListener() {
@@ -95,7 +107,7 @@ public class LoginPanel extends javax.swing.JPanel {
             }
         });
         add(btnStudentView);
-        btnStudentView.setBounds(460, 374, 132, 29);
+        btnStudentView.setBounds(530, 410, 132, 29);
 
         jButton1.setText("Teacher View");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -104,7 +116,7 @@ public class LoginPanel extends javax.swing.JPanel {
             }
         });
         add(jButton1);
-        jButton1.setBounds(460, 421, 132, 29);
+        jButton1.setBounds(380, 410, 132, 29);
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setPreferredSize(new java.awt.Dimension(900, 100));
@@ -121,7 +133,7 @@ public class LoginPanel extends javax.swing.JPanel {
         jLabel4.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
         jLabel4.setText("Username:");
         add(jLabel4);
-        jLabel4.setBounds(227, 219, 97, 22);
+        jLabel4.setBounds(220, 160, 97, 22);
 
         txtUNAME.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -129,11 +141,11 @@ public class LoginPanel extends javax.swing.JPanel {
             }
         });
         add(txtUNAME);
-        txtUNAME.setBounds(350, 215, 291, 26);
+        txtUNAME.setBounds(350, 160, 291, 26);
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/neu/csye6200/View/icon/back.jpg"))); // NOI18N
         add(jLabel5);
-        jLabel5.setBounds(0, 96, 900, 510);
+        jLabel5.setBounds(0, 96, 1000, 630);
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtPINKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPINKeyTyped
@@ -193,6 +205,8 @@ public class LoginPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPasswordField txtPIN;
     private javax.swing.JTextField txtUNAME;

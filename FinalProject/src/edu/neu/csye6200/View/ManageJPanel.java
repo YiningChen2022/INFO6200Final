@@ -83,9 +83,9 @@ public class ManageJPanel extends javax.swing.JPanel {
             }
         });
         add(btnBack3);
-        btnBack3.setBounds(123, 398, 97, 29);
+        btnBack3.setBounds(60, 120, 97, 29);
 
-        jPanel2.setBackground(new java.awt.Color(255, 153, 0));
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setPreferredSize(new java.awt.Dimension(900, 100));
 
         jLabel2.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
@@ -113,7 +113,7 @@ public class ManageJPanel extends javax.swing.JPanel {
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/neu/csye6200/View/icon/back.jpg"))); // NOI18N
         add(jLabel5);
-        jLabel5.setBounds(0, 96, 900, 510);
+        jLabel5.setBounds(0, 96, 1000, 600);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnStuManage3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStuManage3ActionPerformed

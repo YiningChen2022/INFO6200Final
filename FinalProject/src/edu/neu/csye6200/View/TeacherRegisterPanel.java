@@ -125,7 +125,7 @@ public class TeacherRegisterPanel extends javax.swing.JPanel {
             }
         });
         add(jButton1);
-        jButton1.setBounds(76, 449, 97, 29);
+        jButton1.setBounds(70, 110, 97, 29);
 
         jLabel6.setText("Phone:");
         add(jLabel6);
@@ -139,7 +139,7 @@ public class TeacherRegisterPanel extends javax.swing.JPanel {
         add(txtTchAddress);
         txtTchAddress.setBounds(365, 332, 109, 26);
 
-        jPanel1.setBackground(new java.awt.Color(255, 153, 0));
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setPreferredSize(new java.awt.Dimension(900, 100));
 
         jLabel1.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
@@ -167,7 +167,7 @@ public class TeacherRegisterPanel extends javax.swing.JPanel {
 
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/neu/csye6200/View/icon/back.jpg"))); // NOI18N
         add(jLabel8);
-        jLabel8.setBounds(0, 96, 900, 510);
+        jLabel8.setBounds(0, 96, 1020, 610);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegisterActionPerformed

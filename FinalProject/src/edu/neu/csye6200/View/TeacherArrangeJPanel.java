@@ -81,7 +81,7 @@ public class TeacherArrangeJPanel extends javax.swing.JPanel {
             }
         });
         add(btnAnnualReport);
-        btnAnnualReport.setBounds(697, 429, 221, 29);
+        btnAnnualReport.setBounds(610, 430, 221, 29);
 
         jButton3.setText("<<Back");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -92,7 +92,7 @@ public class TeacherArrangeJPanel extends javax.swing.JPanel {
         add(jButton3);
         jButton3.setBounds(30, 489, 93, 29);
 
-        jPanel1.setBackground(new java.awt.Color(255, 153, 0));
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setPreferredSize(new java.awt.Dimension(900, 100));
 
         jLabel1.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
@@ -105,7 +105,7 @@ public class TeacherArrangeJPanel extends javax.swing.JPanel {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(53, 53, 53)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 374, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(537, Short.MAX_VALUE))
+                .addContainerGap(473, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -116,7 +116,7 @@ public class TeacherArrangeJPanel extends javax.swing.JPanel {
         );
 
         add(jPanel1);
-        jPanel1.setBounds(0, 0, 964, 100);
+        jPanel1.setBounds(0, 0, 900, 100);
 
         btnAllStuReport.setText("All Student Report");
         btnAllStuReport.addActionListener(new java.awt.event.ActionListener() {
@@ -125,11 +125,11 @@ public class TeacherArrangeJPanel extends javax.swing.JPanel {
             }
         });
         add(btnAllStuReport);
-        btnAllStuReport.setBounds(697, 470, 221, 31);
+        btnAllStuReport.setBounds(610, 470, 221, 31);
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/neu/csye6200/View/icon/back.jpg"))); // NOI18N
         add(jLabel5);
-        jLabel5.setBounds(0, 96, 900, 510);
+        jLabel5.setBounds(0, 96, 1000, 600);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAnnualReportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAnnualReportActionPerformed

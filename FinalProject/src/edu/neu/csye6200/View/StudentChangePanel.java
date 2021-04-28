@@ -97,7 +97,7 @@ public class StudentChangePanel extends javax.swing.JPanel {
         setBackground(new java.awt.Color(255, 255, 255));
         setLayout(null);
 
-        jPanel1.setBackground(new java.awt.Color(255, 153, 0));
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setPreferredSize(new java.awt.Dimension(900, 100));
 
         jLabel1.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
@@ -240,11 +240,11 @@ public class StudentChangePanel extends javax.swing.JPanel {
             }
         });
         add(registerBtn);
-        registerBtn.setBounds(610, 180, 125, 41);
+        registerBtn.setBounds(590, 500, 125, 41);
 
         jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/neu/csye6200/View/icon/back.jpg"))); // NOI18N
         add(jLabel12);
-        jLabel12.setBounds(0, 96, 900, 510);
+        jLabel12.setBounds(0, 96, 1010, 600);
     }// </editor-fold>//GEN-END:initComponents
 
     private void updateBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateBtnActionPerformed

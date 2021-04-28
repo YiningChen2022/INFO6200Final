@@ -114,7 +114,7 @@ public class ImmunizationRecordPanel extends javax.swing.JPanel {
         jScrollPane1.setViewportView(table);
 
         add(jScrollPane1);
-        jScrollPane1.setBounds(57, 162, 774, 266);
+        jScrollPane1.setBounds(70, 170, 774, 266);
 
         jButton2.setText("<< Back");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -123,7 +123,7 @@ public class ImmunizationRecordPanel extends javax.swing.JPanel {
             }
         });
         add(jButton2);
-        jButton2.setBounds(60, 450, 97, 29);
+        jButton2.setBounds(60, 470, 97, 29);
 
         jButton1.setText("Update");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -132,7 +132,7 @@ public class ImmunizationRecordPanel extends javax.swing.JPanel {
             }
         });
         add(jButton1);
-        jButton1.setBounds(746, 440, 105, 29);
+        jButton1.setBounds(740, 450, 105, 29);
 
         jButton3.setText("Reference");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -141,7 +141,7 @@ public class ImmunizationRecordPanel extends javax.swing.JPanel {
             }
         });
         add(jButton3);
-        jButton3.setBounds(746, 481, 105, 29);
+        jButton3.setBounds(740, 490, 105, 29);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setPreferredSize(new java.awt.Dimension(900, 100));
@@ -171,7 +171,7 @@ public class ImmunizationRecordPanel extends javax.swing.JPanel {
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/neu/csye6200/View/icon/back.jpg"))); // NOI18N
         add(jLabel5);
-        jLabel5.setBounds(0, 96, 900, 510);
+        jLabel5.setBounds(0, 96, 1040, 610);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed

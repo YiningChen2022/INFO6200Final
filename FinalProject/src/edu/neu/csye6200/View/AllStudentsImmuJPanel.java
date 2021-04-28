@@ -83,7 +83,7 @@ public class AllStudentsImmuJPanel extends javax.swing.JPanel {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(103, 103, 103)
                 .addComponent(jLabel2)
-                .addContainerGap(504, Short.MAX_VALUE))
+                .addContainerGap(579, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -94,7 +94,7 @@ public class AllStudentsImmuJPanel extends javax.swing.JPanel {
         );
 
         add(jPanel1);
-        jPanel1.setBounds(0, 0, 905, 100);
+        jPanel1.setBounds(0, 0, 1000, 100);
 
         table.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -118,7 +118,7 @@ public class AllStudentsImmuJPanel extends javax.swing.JPanel {
         jScrollPane1.setViewportView(table);
 
         add(jScrollPane1);
-        jScrollPane1.setBounds(53, 137, 774, 266);
+        jScrollPane1.setBounds(70, 170, 774, 266);
 
         jButton1.setText("<<Back");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -127,7 +127,7 @@ public class AllStudentsImmuJPanel extends javax.swing.JPanel {
             }
         });
         add(jButton1);
-        jButton1.setBounds(66, 466, 93, 29);
+        jButton1.setBounds(60, 510, 93, 29);
 
         btnUpdate.setText("Update");
         btnUpdate.addActionListener(new java.awt.event.ActionListener() {
@@ -136,11 +136,11 @@ public class AllStudentsImmuJPanel extends javax.swing.JPanel {
             }
         });
         add(btnUpdate);
-        btnUpdate.setBounds(739, 421, 88, 29);
+        btnUpdate.setBounds(780, 500, 88, 29);
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/neu/csye6200/View/icon/back.jpg"))); // NOI18N
         add(jLabel5);
-        jLabel5.setBounds(0, 96, 900, 510);
+        jLabel5.setBounds(0, 96, 1000, 610);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed

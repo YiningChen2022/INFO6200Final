@@ -157,7 +157,7 @@ public class TeacherChangePanel extends javax.swing.JPanel {
         add(txtTchAddress);
         txtTchAddress.setBounds(365, 336, 109, 26);
 
-        jPanel1.setBackground(new java.awt.Color(255, 153, 0));
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setPreferredSize(new java.awt.Dimension(900, 100));
 
         jLabel1.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
@@ -221,11 +221,11 @@ public class TeacherChangePanel extends javax.swing.JPanel {
             }
         });
         add(reviewBtn);
-        reviewBtn.setBounds(535, 442, 87, 29);
+        reviewBtn.setBounds(510, 440, 90, 40);
 
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/neu/csye6200/View/icon/back.jpg"))); // NOI18N
         add(jLabel9);
-        jLabel9.setBounds(0, 96, 900, 510);
+        jLabel9.setBounds(0, 96, 1000, 600);
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtTchAgeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTchAgeActionPerformed

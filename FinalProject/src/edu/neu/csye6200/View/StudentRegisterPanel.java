@@ -405,7 +405,7 @@ public class StudentRegisterPanel extends javax.swing.JPanel {
         add(jButton2);
         jButton2.setBounds(32, 553, 97, 29);
 
-        jPanel1.setBackground(new java.awt.Color(255, 153, 0));
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel1.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
         jLabel1.setText("New Student Register");
@@ -438,7 +438,7 @@ public class StudentRegisterPanel extends javax.swing.JPanel {
 
         jLabel25.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/neu/csye6200/View/icon/back.jpg"))); // NOI18N
         add(jLabel25);
-        jLabel25.setBounds(0, 96, 900, 510);
+        jLabel25.setBounds(0, 96, 1000, 610);
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtLnameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtLnameActionPerformed
