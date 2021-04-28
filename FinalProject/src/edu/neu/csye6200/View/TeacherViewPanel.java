@@ -108,7 +108,7 @@ public class TeacherViewPanel extends javax.swing.JPanel {
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/neu/csye6200/View/icon/back.jpg"))); // NOI18N
         add(jLabel5);
-        jLabel5.setBounds(0, 96, 1010, 610);
+        jLabel5.setBounds(0, 96, 1010, 600);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed

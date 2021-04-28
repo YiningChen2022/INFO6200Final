@@ -204,9 +204,9 @@ public class StudentRegisterPanel extends javax.swing.JPanel {
             }
         });
         add(txtHepb1);
-        txtHepb1.setBounds(414, 209, 60, 26);
+        txtHepb1.setBounds(430, 210, 60, 26);
         add(txtHepb2);
-        txtHepb2.setBounds(512, 209, 60, 26);
+        txtHepb2.setBounds(520, 210, 60, 26);
 
         txtHepb3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -222,32 +222,32 @@ public class StudentRegisterPanel extends javax.swing.JPanel {
 
         jLabel19.setText("Dozen1");
         add(jLabel19);
-        jLabel19.setBounds(414, 187, 48, 16);
+        jLabel19.setBounds(430, 190, 48, 16);
 
         jLabel20.setText("Dozen2");
         add(jLabel20);
-        jLabel20.setBounds(512, 187, 48, 16);
+        jLabel20.setBounds(520, 190, 48, 16);
 
         jLabel21.setText("Dozen3");
         add(jLabel21);
-        jLabel21.setBounds(608, 187, 48, 16);
+        jLabel21.setBounds(610, 190, 48, 16);
 
         jLabel22.setText("Dozen4");
         add(jLabel22);
-        jLabel22.setBounds(707, 187, 48, 16);
+        jLabel22.setBounds(700, 190, 48, 16);
 
         jLabel23.setText("Dozen5");
         add(jLabel23);
-        jLabel23.setBounds(804, 187, 48, 16);
+        jLabel23.setBounds(800, 190, 48, 16);
 
         jLabel11.setFont(new java.awt.Font("Lucida Grande", 1, 17)); // NOI18N
         jLabel11.setText("Immunization Record");
         add(jLabel11);
         jLabel11.setBounds(331, 137, 188, 21);
         add(txtHib1);
-        txtHib1.setBounds(414, 341, 60, 26);
+        txtHib1.setBounds(430, 340, 60, 26);
         add(txtDTap2);
-        txtDTap2.setBounds(525, 253, 60, 26);
+        txtDTap2.setBounds(520, 250, 60, 26);
         add(txtDTap3);
         txtDTap3.setBounds(609, 253, 60, 26);
         add(txtDTap4);
@@ -265,9 +265,9 @@ public class StudentRegisterPanel extends javax.swing.JPanel {
         add(txtHib4);
         txtHib4.setBounds(700, 297, 60, 26);
         add(txtHib3);
-        txtHib3.setBounds(622, 297, 60, 26);
+        txtHib3.setBounds(610, 300, 60, 26);
         add(txtHib2);
-        txtHib2.setBounds(525, 297, 60, 26);
+        txtHib2.setBounds(520, 300, 60, 26);
 
         txtDTap1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -275,7 +275,7 @@ public class StudentRegisterPanel extends javax.swing.JPanel {
             }
         });
         add(txtDTap1);
-        txtDTap1.setBounds(414, 253, 60, 26);
+        txtDTap1.setBounds(430, 250, 60, 26);
 
         jLabel14.setText("Hib");
         add(jLabel14);
@@ -293,7 +293,7 @@ public class StudentRegisterPanel extends javax.swing.JPanel {
         add(jLabel15);
         jLabel15.setBounds(332, 341, 30, 16);
         add(txtMMR1);
-        txtMMR1.setBounds(414, 385, 60, 26);
+        txtMMR1.setBounds(430, 390, 60, 26);
 
         txtMMR2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -301,9 +301,9 @@ public class StudentRegisterPanel extends javax.swing.JPanel {
             }
         });
         add(txtMMR2);
-        txtMMR2.setBounds(525, 341, 59, 26);
+        txtMMR2.setBounds(520, 340, 59, 26);
         add(txtMMR3);
-        txtMMR3.setBounds(622, 341, 60, 26);
+        txtMMR3.setBounds(610, 340, 60, 26);
         add(txtMMR4);
         txtMMR4.setBounds(700, 341, 60, 26);
 
@@ -321,9 +321,9 @@ public class StudentRegisterPanel extends javax.swing.JPanel {
             }
         });
         add(txtIPV5);
-        txtIPV5.setBounds(794, 385, 60, 26);
+        txtIPV5.setBounds(790, 390, 60, 26);
         add(txtIPV4);
-        txtIPV4.setBounds(700, 385, 60, 26);
+        txtIPV4.setBounds(700, 390, 60, 26);
 
         txtIPV3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -331,7 +331,7 @@ public class StudentRegisterPanel extends javax.swing.JPanel {
             }
         });
         add(txtIPV3);
-        txtIPV3.setBounds(622, 385, 60, 26);
+        txtIPV3.setBounds(610, 390, 60, 26);
 
         txtIPV2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -339,9 +339,9 @@ public class StudentRegisterPanel extends javax.swing.JPanel {
             }
         });
         add(txtIPV2);
-        txtIPV2.setBounds(525, 385, 60, 26);
+        txtIPV2.setBounds(520, 390, 60, 26);
         add(txtIPV1);
-        txtIPV1.setBounds(414, 429, 60, 26);
+        txtIPV1.setBounds(430, 430, 60, 26);
 
         jLabel16.setText("IPV");
         add(jLabel16);
@@ -351,19 +351,19 @@ public class StudentRegisterPanel extends javax.swing.JPanel {
         add(jLabel17);
         jLabel17.setBounds(332, 434, 25, 16);
         add(txtVAR1);
-        txtVAR1.setBounds(414, 297, 60, 26);
+        txtVAR1.setBounds(430, 300, 60, 26);
         add(txtVAR3);
-        txtVAR3.setBounds(622, 429, 60, 26);
+        txtVAR3.setBounds(610, 430, 60, 26);
         add(txtVAR2);
-        txtVAR2.setBounds(525, 429, 60, 26);
+        txtVAR2.setBounds(520, 430, 60, 26);
         add(txtVAR4);
-        txtVAR4.setBounds(700, 429, 60, 26);
+        txtVAR4.setBounds(700, 430, 60, 26);
         add(txtVAR5);
         txtVAR5.setBounds(794, 429, 60, 26);
         add(txtMein5);
-        txtMein5.setBounds(794, 473, 60, 26);
+        txtMein5.setBounds(790, 480, 60, 26);
         add(txtMein4);
-        txtMein4.setBounds(713, 473, 60, 26);
+        txtMein4.setBounds(700, 480, 60, 26);
 
         txtMein3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -371,9 +371,9 @@ public class StudentRegisterPanel extends javax.swing.JPanel {
             }
         });
         add(txtMein3);
-        txtMein3.setBounds(622, 473, 60, 26);
+        txtMein3.setBounds(610, 480, 60, 26);
         add(txtMein2);
-        txtMein2.setBounds(525, 476, 60, 26);
+        txtMein2.setBounds(520, 480, 60, 26);
 
         txtMein1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -381,11 +381,11 @@ public class StudentRegisterPanel extends javax.swing.JPanel {
             }
         });
         add(txtMein1);
-        txtMein1.setBounds(420, 476, 58, 26);
+        txtMein1.setBounds(430, 480, 58, 26);
 
         jLabel18.setText("Meningococcal");
         add(jLabel18);
-        jLabel18.setBounds(314, 481, 94, 16);
+        jLabel18.setBounds(330, 480, 94, 16);
 
         jButton1.setText("Register");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -417,7 +417,7 @@ public class StudentRegisterPanel extends javax.swing.JPanel {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(94, 94, 94)
                 .addComponent(jLabel1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(568, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

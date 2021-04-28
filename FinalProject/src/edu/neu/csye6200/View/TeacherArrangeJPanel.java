@@ -174,7 +174,7 @@ public class TeacherArrangeJPanel extends javax.swing.JPanel {
         List<Group> grouplist = new ArrayList<>(dataStore.getGroupList());
 
         for (Group group : grouplist) {
-            if (group.isTech() && group.getTeacher().isRegisterState()) {
+            if (group.isTech()) {
                 Object row[] = new Object[4];
                 row[0] = group;
                 row[1] = group.getTeacher().getFirstName() + " " + group.getTeacher().getLastName();

@@ -100,7 +100,7 @@ public class TeacherManagementPanel extends javax.swing.JPanel {
             }
         });
         add(btnRegister);
-        btnRegister.setBounds(657, 421, 179, 29);
+        btnRegister.setBounds(580, 390, 210, 29);
 
         jButton2.setText("Delete Teacher Record");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -109,7 +109,7 @@ public class TeacherManagementPanel extends javax.swing.JPanel {
             }
         });
         add(jButton2);
-        jButton2.setBounds(657, 468, 184, 29);
+        jButton2.setBounds(580, 430, 210, 29);
 
         jLabel3.setText("Teacher ID:");
         add(jLabel3);
@@ -139,7 +139,7 @@ public class TeacherManagementPanel extends javax.swing.JPanel {
             }
         });
         add(jButton3);
-        jButton3.setBounds(38, 521, 97, 29);
+        jButton3.setBounds(30, 510, 97, 29);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setPreferredSize(new java.awt.Dimension(900, 100));
@@ -174,7 +174,7 @@ public class TeacherManagementPanel extends javax.swing.JPanel {
             }
         });
         add(btnRegister1);
-        btnRegister1.setBounds(619, 515, 222, 29);
+        btnRegister1.setBounds(580, 460, 210, 29);
 
         reviewBtn.setText("Annual Review");
         reviewBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -183,7 +183,7 @@ public class TeacherManagementPanel extends javax.swing.JPanel {
             }
         });
         add(reviewBtn);
-        reviewBtn.setBounds(502, 421, 135, 29);
+        reviewBtn.setBounds(580, 490, 210, 29);
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/neu/csye6200/View/icon/back.jpg"))); // NOI18N
         add(jLabel5);

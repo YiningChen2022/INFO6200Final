@@ -130,7 +130,7 @@ public class StudentChangePanel extends javax.swing.JPanel {
             }
         });
         add(updateBtn);
-        updateBtn.setBounds(320, 500, 88, 38);
+        updateBtn.setBounds(650, 170, 88, 38);
 
         saveBtn.setText("Save");
         saveBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -139,7 +139,7 @@ public class StudentChangePanel extends javax.swing.JPanel {
             }
         });
         add(saveBtn);
-        saveBtn.setBounds(440, 500, 88, 41);
+        saveBtn.setBounds(650, 240, 88, 41);
 
         jLabel10.setFont(new java.awt.Font("Lucida Grande", 1, 17)); // NOI18N
         jLabel10.setText("Personal Information");
@@ -148,35 +148,35 @@ public class StudentChangePanel extends javax.swing.JPanel {
 
         jLabel2.setText("Student ID:");
         add(jLabel2);
-        jLabel2.setBounds(336, 144, 70, 16);
+        jLabel2.setBounds(320, 140, 70, 16);
 
         jLabel3.setText("First Name:");
         add(jLabel3);
-        jLabel3.setBounds(338, 182, 72, 16);
+        jLabel3.setBounds(320, 180, 72, 16);
 
         jLabel4.setText("Last Name:");
         add(jLabel4);
-        jLabel4.setBounds(338, 221, 70, 16);
+        jLabel4.setBounds(320, 220, 70, 16);
 
         jLabel7.setText("Age:");
         add(jLabel7);
-        jLabel7.setBounds(338, 258, 28, 16);
+        jLabel7.setBounds(320, 260, 28, 16);
 
         jLabel8.setText("Address:");
         add(jLabel8);
-        jLabel8.setBounds(338, 296, 55, 16);
+        jLabel8.setBounds(320, 300, 55, 16);
 
         jLabel9.setText("Phone Number:");
         add(jLabel9);
-        jLabel9.setBounds(335, 341, 96, 16);
+        jLabel9.setBounds(320, 340, 96, 16);
 
         jLabel5.setText("Parent First Name:");
         add(jLabel5);
-        jLabel5.setBounds(329, 385, 115, 16);
+        jLabel5.setBounds(320, 390, 115, 16);
 
         jLabel6.setText("Parent Last Name:");
         add(jLabel6);
-        jLabel6.setBounds(329, 429, 113, 16);
+        jLabel6.setBounds(320, 430, 113, 16);
 
         txtID.setEnabled(false);
         txtID.addActionListener(new java.awt.event.ActionListener() {
@@ -185,11 +185,11 @@ public class StudentChangePanel extends javax.swing.JPanel {
             }
         });
         add(txtID);
-        txtID.setBounds(459, 139, 109, 26);
+        txtID.setBounds(450, 140, 109, 26);
 
         txtFname.setEnabled(false);
         add(txtFname);
-        txtFname.setBounds(459, 177, 109, 26);
+        txtFname.setBounds(450, 180, 109, 26);
 
         txtLname.setEnabled(false);
         txtLname.addActionListener(new java.awt.event.ActionListener() {
@@ -198,7 +198,7 @@ public class StudentChangePanel extends javax.swing.JPanel {
             }
         });
         add(txtLname);
-        txtLname.setBounds(459, 215, 109, 26);
+        txtLname.setBounds(450, 220, 109, 26);
 
         txtAge.setEnabled(false);
         txtAge.addActionListener(new java.awt.event.ActionListener() {
@@ -207,27 +207,27 @@ public class StudentChangePanel extends javax.swing.JPanel {
             }
         });
         add(txtAge);
-        txtAge.setBounds(459, 253, 109, 26);
+        txtAge.setBounds(450, 250, 109, 26);
 
         txtAddress.setEnabled(false);
         add(txtAddress);
-        txtAddress.setBounds(459, 291, 109, 26);
+        txtAddress.setBounds(450, 290, 109, 26);
 
         txtPnumber.setEnabled(false);
         add(txtPnumber);
-        txtPnumber.setBounds(459, 336, 109, 26);
+        txtPnumber.setBounds(450, 340, 109, 26);
 
         txtPfname.setEnabled(false);
         add(txtPfname);
-        txtPfname.setBounds(462, 380, 109, 26);
+        txtPfname.setBounds(450, 380, 109, 26);
 
         txtPlame.setEnabled(false);
         add(txtPlame);
-        txtPlame.setBounds(462, 424, 109, 26);
+        txtPlame.setBounds(450, 420, 109, 26);
 
         jLabel11.setText("Birthday:");
         add(jLabel11);
-        jLabel11.setBounds(330, 462, 55, 16);
+        jLabel11.setBounds(320, 460, 55, 16);
 
         txtbirthday.setEnabled(false);
         add(txtbirthday);
@@ -240,7 +240,7 @@ public class StudentChangePanel extends javax.swing.JPanel {
             }
         });
         add(registerBtn);
-        registerBtn.setBounds(590, 500, 125, 41);
+        registerBtn.setBounds(390, 520, 125, 41);
 
         jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/neu/csye6200/View/icon/back.jpg"))); // NOI18N
         add(jLabel12);
