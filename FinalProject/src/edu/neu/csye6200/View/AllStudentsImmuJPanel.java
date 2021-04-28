@@ -98,17 +98,17 @@ public class AllStudentsImmuJPanel extends javax.swing.JPanel {
 
         table.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null}
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "Immunization Type", "Student ID", "Student Name", "1st Dose", "2nd Dose", "3rd Dose", "4th Dose", "No. of Does Needed"
+                "Immunization Type", "Student ID", "Student Name", "1st Dose", "2nd Dose", "3rd Dose", "4th Dose", "5th Dose", "No. of Does Needed"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, false
+                false, false, false, false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -127,7 +127,7 @@ public class AllStudentsImmuJPanel extends javax.swing.JPanel {
             }
         });
         add(jButton1);
-        jButton1.setBounds(60, 510, 93, 29);
+        jButton1.setBounds(60, 510, 71, 23);
 
         btnUpdate.setText("Update");
         btnUpdate.addActionListener(new java.awt.event.ActionListener() {
@@ -136,7 +136,7 @@ public class AllStudentsImmuJPanel extends javax.swing.JPanel {
             }
         });
         add(btnUpdate);
-        btnUpdate.setBounds(780, 500, 88, 29);
+        btnUpdate.setBounds(780, 500, 67, 23);
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/neu/csye6200/View/icon/back.jpg"))); // NOI18N
         add(jLabel5);
@@ -171,7 +171,7 @@ public class AllStudentsImmuJPanel extends javax.swing.JPanel {
         for (Student s : stulist) {
             if (s.isRegisterState()) {
                 for (Immunization i : s.getImmunizationmap().values()) {
-                    Object row[] = new Object[8];
+                    Object row[] = new Object[9];
                     row[0] = i;
                     row[1] = s;
                     row[2] = s.getFirstName() + " " + s.getLastName();
@@ -180,7 +180,8 @@ public class AllStudentsImmuJPanel extends javax.swing.JPanel {
                     row[4] = arr[1];
                     row[5] = arr[2];
                     row[6] = arr[3];
-                    row[7] = i.getDose();
+                    row[7] = arr[4];
+                    row[8] = i.getDose();
                     dtm.addRow(row);
                     if (checkExpired(i)) {
                         hasExpiredStudent = true;
@@ -231,7 +232,7 @@ public class AllStudentsImmuJPanel extends javax.swing.JPanel {
         } else if (lastDate != null && calculateDayDiff(lastDate, getCurrentDateString()) > 60) {
             return true;
         } else {
-            return true;
+            return false;
         }
     }
 

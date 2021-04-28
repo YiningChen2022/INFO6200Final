@@ -275,7 +275,7 @@ public class ImmunizationRecordPanel extends javax.swing.JPanel {
         } else if (lastDate != null && calculateDayDiff(lastDate, getCurrentDateString()) > 60) {
             return true;
         } else {
-            return true;
+            return false;
         }
     }
 
