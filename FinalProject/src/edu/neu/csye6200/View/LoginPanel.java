@@ -65,7 +65,7 @@ public class LoginPanel extends javax.swing.JPanel {
         jLabel7.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
         jLabel7.setText("Quick View:");
         add(jLabel7);
-        jLabel7.setBounds(220, 410, 170, 22);
+        jLabel7.setBounds(280, 410, 170, 22);
 
         txtPIN.setFont(new java.awt.Font("Aharoni", 0, 18)); // NOI18N
         txtPIN.addActionListener(new java.awt.event.ActionListener() {
@@ -79,12 +79,12 @@ public class LoginPanel extends javax.swing.JPanel {
             }
         });
         add(txtPIN);
-        txtPIN.setBounds(350, 230, 291, 32);
+        txtPIN.setBounds(430, 230, 291, 32);
 
         jLabel3.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
         jLabel3.setText("Password:");
         add(jLabel3);
-        jLabel3.setBounds(220, 230, 93, 22);
+        jLabel3.setBounds(290, 230, 93, 22);
 
         btnLogIn.setText("Teacher Login");
         btnLogIn.addActionListener(new java.awt.event.ActionListener() {
@@ -93,7 +93,7 @@ public class LoginPanel extends javax.swing.JPanel {
             }
         });
         add(btnLogIn);
-        btnLogIn.setBounds(370, 290, 132, 30);
+        btnLogIn.setBounds(400, 300, 132, 30);
 
         jLabel8.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
         jLabel8.setText("Or");
@@ -107,7 +107,7 @@ public class LoginPanel extends javax.swing.JPanel {
             }
         });
         add(btnStudentView);
-        btnStudentView.setBounds(530, 410, 132, 29);
+        btnStudentView.setBounds(550, 410, 132, 29);
 
         jButton1.setText("Teacher View");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -116,7 +116,7 @@ public class LoginPanel extends javax.swing.JPanel {
             }
         });
         add(jButton1);
-        jButton1.setBounds(380, 410, 132, 29);
+        jButton1.setBounds(400, 410, 132, 29);
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setPreferredSize(new java.awt.Dimension(900, 100));
@@ -133,7 +133,7 @@ public class LoginPanel extends javax.swing.JPanel {
         jLabel4.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
         jLabel4.setText("Username:");
         add(jLabel4);
-        jLabel4.setBounds(220, 160, 97, 22);
+        jLabel4.setBounds(290, 160, 97, 22);
 
         txtUNAME.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -141,7 +141,7 @@ public class LoginPanel extends javax.swing.JPanel {
             }
         });
         add(txtUNAME);
-        txtUNAME.setBounds(350, 160, 291, 26);
+        txtUNAME.setBounds(430, 160, 291, 26);
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/neu/csye6200/View/icon/back.jpg"))); // NOI18N
         add(jLabel5);

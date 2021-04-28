@@ -83,7 +83,7 @@ public class AllStudentsImmuJPanel extends javax.swing.JPanel {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(103, 103, 103)
                 .addComponent(jLabel2)
-                .addContainerGap(579, Short.MAX_VALUE))
+                .addContainerGap(679, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -94,7 +94,7 @@ public class AllStudentsImmuJPanel extends javax.swing.JPanel {
         );
 
         add(jPanel1);
-        jPanel1.setBounds(0, 0, 1000, 100);
+        jPanel1.setBounds(0, 0, 1100, 100);
 
         table.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -140,7 +140,7 @@ public class AllStudentsImmuJPanel extends javax.swing.JPanel {
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/neu/csye6200/View/icon/back.jpg"))); // NOI18N
         add(jLabel5);
-        jLabel5.setBounds(0, 96, 1000, 610);
+        jLabel5.setBounds(0, 96, 1100, 610);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
