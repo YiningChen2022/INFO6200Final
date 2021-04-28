@@ -234,7 +234,7 @@ public class AllStudentsImmuJPanel extends javax.swing.JPanel {
         int done = 0;
         String lastDate = null;
         for (String date : i.getDate()) {
-            if (date != null && !date.equals("0")) {
+            if (date != null && !date.equals("0") && !date.equals("") && !date.equals(" ")) {
                 done++;
                 lastDate = date;
             }

@@ -6,6 +6,7 @@
 package edu.neu.csye6200.View;
 
 import edu.neu.csye6200.Controller.DataStore;
+import edu.neu.csye6200.Controller.FileUtil;
 import edu.neu.csye6200.Object.Immunization;
 import java.awt.CardLayout;
 import java.awt.Component;
@@ -223,6 +224,7 @@ public class ImmunizationUpdatePanel extends javax.swing.JPanel {
         arr[3] = txtDose4.getText();
         arr[4] = txtDose5.getText();
         immunization.setDate(arr);
+        FileUtil.writeCsv();
         JOptionPane.showMessageDialog(null, "Update successfully!");
         toImmunizationRecordScreen();
 
