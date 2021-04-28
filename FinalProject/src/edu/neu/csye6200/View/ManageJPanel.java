@@ -42,10 +42,12 @@ public class ManageJPanel extends javax.swing.JPanel {
         btnBack3 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setPreferredSize(new java.awt.Dimension(900, 600));
         setSize(new java.awt.Dimension(900, 600));
+        setLayout(null);
 
         btnStuManage3.setText("Student Record Management");
         btnStuManage3.addActionListener(new java.awt.event.ActionListener() {
@@ -53,6 +55,8 @@ public class ManageJPanel extends javax.swing.JPanel {
                 btnStuManage3ActionPerformed(evt);
             }
         });
+        add(btnStuManage3);
+        btnStuManage3.setBounds(344, 167, 223, 29);
 
         btnTeaManage3.setText("Teacher & Student Info View");
         btnTeaManage3.addActionListener(new java.awt.event.ActionListener() {
@@ -60,6 +64,8 @@ public class ManageJPanel extends javax.swing.JPanel {
                 btnTeaManage3ActionPerformed(evt);
             }
         });
+        add(btnTeaManage3);
+        btnTeaManage3.setBounds(344, 315, 224, 29);
 
         btnInfoView3.setText("Teacher Record Management");
         btnInfoView3.addActionListener(new java.awt.event.ActionListener() {
@@ -67,6 +73,8 @@ public class ManageJPanel extends javax.swing.JPanel {
                 btnInfoView3ActionPerformed(evt);
             }
         });
+        add(btnInfoView3);
+        btnInfoView3.setBounds(344, 243, 224, 29);
 
         btnBack3.setText("<< Back");
         btnBack3.addActionListener(new java.awt.event.ActionListener() {
@@ -74,8 +82,10 @@ public class ManageJPanel extends javax.swing.JPanel {
                 btnBack3ActionPerformed(evt);
             }
         });
+        add(btnBack3);
+        btnBack3.setBounds(60, 120, 97, 29);
 
-        jPanel2.setBackground(new java.awt.Color(255, 153, 0));
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setPreferredSize(new java.awt.Dimension(900, 100));
 
         jLabel2.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
@@ -98,38 +108,12 @@ public class ManageJPanel extends javax.swing.JPanel {
                 .addGap(38, 38, 38))
         );
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(123, 123, 123)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnBack3)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(221, 221, 221)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnTeaManage3, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(btnInfoView3)
-                                .addComponent(btnStuManage3)))))
-                .addContainerGap(332, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(67, 67, 67)
-                .addComponent(btnStuManage3)
-                .addGap(47, 47, 47)
-                .addComponent(btnInfoView3)
-                .addGap(43, 43, 43)
-                .addComponent(btnTeaManage3)
-                .addGap(54, 54, 54)
-                .addComponent(btnBack3)
-                .addContainerGap(173, Short.MAX_VALUE))
-        );
+        add(jPanel2);
+        jPanel2.setBounds(0, 0, 900, 100);
+
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/neu/csye6200/View/icon/back.jpg"))); // NOI18N
+        add(jLabel5);
+        jLabel5.setBounds(0, 96, 1000, 600);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnStuManage3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStuManage3ActionPerformed
@@ -170,6 +154,7 @@ public class ManageJPanel extends javax.swing.JPanel {
     private javax.swing.JButton btnStuManage3;
     private javax.swing.JButton btnTeaManage3;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel2;
     // End of variables declaration//GEN-END:variables
 }
